@@ -111,3 +111,208 @@
 		font-size    : 9.5pt;
 	}
 }
+
+// *****************************
+// *   TABELAS (zebra + título marrom)
+// *****************************/
+.page {
+	table {
+		width           : 100%;
+		margin-bottom   : 0.3cm;
+		font-family     : 'SourceSansPro';
+		font-size       : 8.5pt;
+		border-collapse : collapse;
+		thead {
+			font-family   : 'IowanOldStyle';
+			font-weight   : bold;
+			font-variant  : small-caps;
+			color         : var(--HB_Color_TableTitle);
+			border-bottom : 2px solid @t20-tabela;
+		}
+		tbody tr:nth-child(odd)  { background-color : @t20-zebra-a; }
+		tbody tr:nth-child(even) { background-color : @t20-zebra-b; }
+		td, th { padding : 1px 0.4em; text-align : left; }
+	}
+}
+
+// *****************************
+// *   BOX / QUADRO (título dourado sobre vermelho)
+// *****************************/
+.page {
+	.note {
+		margin        : 0.3cm 0;
+		padding       : 0.4cm 0.5cm;
+		color         : @t20-texto-claro;
+		background    : @t20-vermelho;
+		border-radius : 2px;
+		break-inside  : avoid;
+		h1, h2, h3, h4, h5 {
+			font-family : 'SourceSansPro';
+			font-weight : bold;
+			color       : @t20-dourado; // título de box dourado
+		}
+		p, li { color : @t20-texto-claro; }
+		// moldura serrilhada (box-vermelho-*.png via border-image) fica p/ ajuste visual
+	}
+}
+
+// *****************************
+// *   FICHA DE AMEAÇA (statblock)
+// *****************************/
+.page {
+	.ameaca {
+		padding      : 0.35cm 0.45cm;
+		font-family  : 'SourceSansPro';
+		font-size    : 8.5pt;
+		color        : @t20-texto;
+		background   : @t20-zebra-b;
+		border       : 1.5px solid @t20-vinho;
+		break-inside : avoid;
+		h1, h2 {
+			font-family   : 'Tormenta20';
+			font-size     : 14pt;
+			color         : @t20-vinho;
+			column-span   : initial;
+			margin-bottom : 0.1cm;
+		}
+		// rótulos de ficha (Iniciativa, Defesa...) small-caps bold vermelho
+		dt {
+			font-weight  : bold;
+			font-variant : small-caps;
+			color        : @t20-vermelho;
+		}
+		hr {
+			height     : 2px;
+			margin     : 0.12cm 0;
+			background : @t20-vinho;
+			border     : none;
+		}
+	}
+}
+
+// *****************************
+// *   MAGIA / PODER
+// *****************************/
+.page {
+	.magia, .poder {
+		margin       : 0.2cm 0;
+		font-family  : 'SourceSansPro';
+		font-size    : 8.5pt;
+		break-inside : avoid;
+		h4, h5 {
+			font-family : 'IowanOldStyle';
+			font-weight : bold;
+			font-style  : italic; // nome de magia em itálico
+			color       : @t20-vinho;
+		}
+		.tipo { color : @t20-cinza; font-weight : bold; } // "tipo de magia" cinza
+		dt { font-weight : bold; color : @t20-vermelho; }
+	}
+}
+
+// *****************************
+// *   CAPA (.frontCover)
+// *****************************/
+.page:has(.frontCover) {
+	column-count     : 1;
+	color            : @t20-bege;
+	text-align       : center;
+	background-color : @t20-vinho;
+	background-image : none;
+	.frontCover {
+		display         : flex;
+		flex-direction  : column;
+		align-items     : center;
+		justify-content : center;
+		height          : 100%;
+	}
+	h1 {
+		font-family : 'Tormenta20';
+		font-size   : 42pt;
+		line-height : 1.05;
+		color       : @t20-bege;
+	}
+	// divisor decorativo entre título e autores
+	h1::after {
+		content    : '';
+		display    : block;
+		width      : 60%;
+		height     : 18px;
+		margin     : 0.4cm auto;
+		background : @t20-divisor-capa center / contain no-repeat;
+	}
+	h2, .autores {
+		font-family : 'Tormenta20';
+		font-size   : 16pt;
+		color       : @t20-texto-claro;
+	}
+}
+
+// *****************************
+// *   ABERTURA DE CAPÍTULO (.capitulo)
+// *****************************/
+.page:has(.capitulo) {
+	h1 {
+		padding       : 0.6cm 0.4cm;
+		margin-bottom : 0.4cm;
+		color         : @t20-texto-claro;
+		text-align    : center;
+		background    : @t20-abertura-cap-2 center / 100% 100% no-repeat;
+	}
+}
+
+// *****************************
+// *   BORDAS LATERAIS + Nº DE PÁGINA (espelhados)
+// *****************************/
+.page {
+	// borda na margem interna (esquerda em ímpares, direita em pares)
+	&::before {
+		content        : '';
+		position       : absolute;
+		top            : 0;
+		bottom         : 0;
+		left           : 0;
+		width          : 12mm;
+		background     : @t20-borda-esquerda left top / auto 100% no-repeat;
+		z-index        : 20;
+		pointer-events : none;
+	}
+	&:nth-of-type(even)::before {
+		right      : 0;
+		left       : auto;
+		background : @t20-borda-direita right top / auto 100% no-repeat;
+	}
+	// número de página dourado sobre a mancha do kit
+	.pageNumber {
+		width       : 26px;
+		height      : 26px;
+		font-family : 'Tormenta20';
+		font-size   : 11pt;
+		line-height : 26px;
+		color       : @t20-dourado;
+		background  : @t20-numero-pagina center / contain no-repeat;
+	}
+}
+
+// *****************************
+// *   CRÉDITOS + SELO (obrigatório: disclaimer Jambô)
+// *****************************/
+.page {
+	.creditos {
+		font-family : 'SourceSansPro';
+		font-size   : 8pt;
+		color       : @t20-texto;
+		text-align  : center;
+		.selo {
+			display    : block;
+			width      : 3cm;
+			height     : 3cm;
+			margin     : 0.4cm auto;
+			background : @t20-selo center / contain no-repeat;
+		}
+		.disclaimer {
+			font-style : italic;
+			color      : @t20-tabela;
+		}
+	}
+}
