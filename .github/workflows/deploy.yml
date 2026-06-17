@@ -27,7 +27,9 @@ jobs:
           cache: 'npm'
 
       - name: Build gate (compila tudo, incl. temas/LESS)
-        run: npm ci --no-audit --no-fund
+        # npm install (nao ci): o lockfile do upstream homebrewery esta
+        # dessincronizado; npm ci e estrito e falha. install builda igual ao server.
+        run: npm install --no-audit --no-fund
 
       - name: Deploy via SSH (só roda se o build passou)
         uses: appleboy/ssh-action@v1.2.2
