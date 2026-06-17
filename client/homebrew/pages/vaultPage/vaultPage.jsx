@@ -120,7 +120,7 @@ const VaultPage = (props)=>{
 		<Navbar>
 			<Nav.section>
 				<Nav.item className='brewTitle'>
-					Vault: Search for brews
+					Cofre: Buscar documentos
 				</Nav.item>
 			</Nav.section>
 			<Nav.section>
@@ -149,10 +149,10 @@ const VaultPage = (props)=>{
 
 	const renderForm = ()=>(
 		<div className='brewLookup'>
-			<h2 className='formTitle'>Brew Lookup</h2>
+			<h2 className='formTitle'>Busca de Documentos</h2>
 			<div className='formContents'>
 				<label>
-					Title of the brew
+					Título do documento
 					<input
 						ref={titleRef}
 						type='text'
@@ -160,17 +160,17 @@ const VaultPage = (props)=>{
 						defaultValue={props.query.title || ''}
 						onKeyUp={disableSubmitIfFormInvalid}
 						pattern='.{3,}'
-						title='At least 3 characters'
+						title='Pelo menos 3 caracteres'
 						onKeyDown={(e)=>{
 							if(e.key === 'Enter' && !submitButtonRef.current.disabled)
 								loadPage(1, true);
 						}}
-						placeholder='v3 Reference Document'
+						placeholder='Documento de Referência v3'
 					/>
 				</label>
 
 				<label>
-					Author of the brew
+					Autor do documento
 					<input
 						ref={authorRef}
 						type='text'
@@ -182,12 +182,12 @@ const VaultPage = (props)=>{
 							if(e.key === 'Enter' && !submitButtonRef.current.disabled)
 								loadPage(1, true);
 						}}
-						placeholder='Username'
+						placeholder='Usuário'
 					/>
 				</label>
 
 				<label>
-					Results per page
+					Resultados por página
 					<select ref={countRef} name='count' defaultValue={props.query.count || 20}>
 						<option value='10'>10</option>
 						<option value='20'>20</option>
@@ -204,7 +204,7 @@ const VaultPage = (props)=>{
 						defaultChecked={props.query.v3 !== 'false'}
 						onChange={disableSubmitIfFormInvalid}
 					/>
-					Search for v3 brews
+					Buscar documentos v3
 				</label>
 
 				<label>
@@ -215,7 +215,7 @@ const VaultPage = (props)=>{
 						defaultChecked={props.query.legacy !== 'false'}
 						onChange={disableSubmitIfFormInvalid}
 					/>
-					Search for legacy brews
+					Buscar documentos legados
 				</label>
 
 				<button
@@ -225,34 +225,34 @@ const VaultPage = (props)=>{
 						loadPage(1, true);
 					}}
 				>
-					Search
+					Buscar
 					<i
 						className={searching ? 'fas fa-spin fa-spinner': 'fas fa-search'}
 					/>
 				</button>
 			</div>
 			<legend>
-				<h3>Tips and tricks</h3>
+				<h3>Dicas e truques</h3>
 				<ul>
 					<li>
-						Only <b>published</b> brews are searchable via this tool
+						Apenas documentos <b>publicados</b> podem ser encontrados por esta ferramenta
 					</li>
 					<li>
-						Usernames are case-sensitive
+						Os nomes de usuário diferenciam maiúsculas de minúsculas
 					</li>
 					<li>
-						Use <code>"word"</code> to match an exact string,
-						and <code>-</code> to exclude words (at least one word must not be negated)
+						Use <code>"palavra"</code> para corresponder a um termo exato,
+						e <code>-</code> para excluir palavras (pelo menos uma palavra não pode ser negada)
 					</li>
 					<li>
-						Some common words like "a", "after", "through", "itself", "here", etc.,
-						are ignored in searches. The full list can be found&nbsp;
+						Algumas palavras comuns como "a", "after", "through", "itself", "here", etc.,
+						são ignoradas nas buscas. A lista completa pode ser encontrada&nbsp;
 						<a href='https://github.com/mongodb/mongo/blob/0e3b3ca8480ddddf5d0105d11a94bd4698335312/src/mongo/db/fts/stop_words_english.txt'>
-							here
+							aqui
 						</a>
 					</li>
 				</ul>
-				<small>New features will be coming, such as filters and search by tags.</small>
+				<small>Novos recursos estão por vir, como filtros e busca por tags.</small>
 			</legend>
 		</div>
 	);
@@ -276,10 +276,10 @@ const VaultPage = (props)=>{
 
 		return (
 			<div className='sort-container'>
-				{renderSortOption('Title', 'title', props.query.dir)}
-				{renderSortOption('Created Date', 'createdAt', props.query.dir)}
-				{renderSortOption('Updated Date', 'updatedAt', props.query.dir)}
-				{renderSortOption('Views', 'views', props.query.dir)}
+				{renderSortOption('Título', 'title', props.query.dir)}
+				{renderSortOption('Data de Criação', 'createdAt', props.query.dir)}
+				{renderSortOption('Data de Atualização', 'updatedAt', props.query.dir)}
+				{renderSortOption('Visualizações', 'views', props.query.dir)}
 			</div>
 		);
 	};
@@ -358,7 +358,7 @@ const VaultPage = (props)=>{
 		if(searching && !brewCollection) {
 			return (
 				<div className='foundBrews searching'>
-					<h3 className='searchAnim'>Searching</h3>
+					<h3 className='searchAnim'>Buscando</h3>
 				</div>
 			);
 		}
@@ -368,7 +368,7 @@ const VaultPage = (props)=>{
 
 			return (
 				<div className='foundBrews noBrews'>
-					<h3>Error: {errorText}</h3>
+					<h3>Erro: {errorText}</h3>
 				</div>
 			);
 		}
@@ -376,7 +376,7 @@ const VaultPage = (props)=>{
 		if(!brewCollection) {
 			return (
 				<div className='foundBrews noBrews'>
-					<h3>No search yet</h3>
+					<h3>Nenhuma busca ainda</h3>
 				</div>
 			);
 		}
@@ -384,7 +384,7 @@ const VaultPage = (props)=>{
 		if(brewCollection.length === 0) {
 			return (
 				<div className='foundBrews noBrews'>
-					<h3>No brews found</h3>
+					<h3>Nenhum documento encontrado</h3>
 				</div>
 			);
 		}
@@ -392,7 +392,7 @@ const VaultPage = (props)=>{
 		return (
 			<div className='foundBrews'>
 				<span className='totalBrews'>
-					{`Brews found: `}
+					{`Documentos encontrados: `}
 					<span>{totalBrews}</span>
 				</span>
 				{brewCollection.length > 10 && renderPaginationControls()}

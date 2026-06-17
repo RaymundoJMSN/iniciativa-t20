@@ -24,11 +24,11 @@ const RenderWarnings = createReactClass({
 			const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 			if(!isChrome){
 				return <li key='chrome'>
-					<em>Built for Chrome </em> <br />
-					Other browsers have not been tested for compatibility. If you
-					experience issues with your document not rendering or printing
-					properly, please try using the latest version of Chrome before
-					submitting a bug report.
+					<em>Feito para o Chrome </em> <br />
+					Outros navegadores não foram testados quanto à compatibilidade. Se
+					você tiver problemas com seu documento não sendo exibido ou impresso
+					corretamente, tente usar a versão mais recente do Chrome antes
+					de enviar um relatório de bug.
 				</li>;
 			}
 		},
@@ -50,8 +50,8 @@ const RenderWarnings = createReactClass({
 
 		return <Dialog className='renderWarnings' dismissKey={DISMISS_KEY} closeText={DISMISS_TEXT}>
 			<i className='fas fa-exclamation-triangle ohno' />
-			<h3>Render Warnings</h3>
-			<small>If this homebrew is rendering badly if might be because of the following:</small>
+			<h3>Avisos de exibição</h3>
+			<small>Se este documento estiver sendo exibido de forma incorreta, pode ser por causa do seguinte:</small>
 			<ul>{_.values(this.state.warnings)}</ul>
 		</Dialog>;
 	}

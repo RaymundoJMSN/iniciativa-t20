@@ -76,7 +76,7 @@ const HomePage =(props)=>{
 		document.addEventListener('keydown', handleControlKeys);
 		window.onbeforeunload = ()=>{
 			if(unsavedChangesRef.current)
-				return 'You have unsaved changes!';
+				return 'Voce tem alteracoes nao salvas!';
 		};
 		return ()=>{
 			document.removeEventListener('keydown', handleControlKeys);
@@ -138,7 +138,7 @@ const HomePage =(props)=>{
 	const renderSaveButton = ()=>{
 		// #1 - Currently saving, show SAVING
 		if(isSaving)
-			return <Nav.item className='save' icon='fas fa-spinner fa-spin'>saving...</Nav.item>;
+			return <Nav.item className='save' icon='fas fa-spinner fa-spin'>salvando...</Nav.item>;
 
 		// #2 - Unsaved changes exist, autosave is OFF and warning timer has expired, show AUTOSAVE WARNING
 		// if(unsavedChanges && warnUnsavedChanges) {
@@ -156,18 +156,18 @@ const HomePage =(props)=>{
 
 		// #3 - Unsaved changes exist, click to save, show SAVE NOW
 		if(unsavedChanges)
-			return <Nav.item className='save' onClick={save} color='blue' icon='fas fa-save'>save now</Nav.item>;
+			return <Nav.item className='save' onClick={save} color='blue' icon='fas fa-save'>salvar agora</Nav.item>;
 
 		// #4 - No unsaved changes, autosave is ON, show AUTO-SAVED
 		if(autoSaveEnabled)
-			return <Nav.item className='save saved'>auto-saved</Nav.item>;
+			return <Nav.item className='save saved'>salvo automaticamente</Nav.item>;
 
 		// #5 - No unsaved changes, and has never been saved, hide the button
 		if(neverSaved)
-			return <Nav.item className='save neverSaved'>save now</Nav.item>;
+			return <Nav.item className='save neverSaved'>salvar agora</Nav.item>;
 
 		// DEFAULT - No unsaved changes, show SAVED
-		return <Nav.item className='save saved'>saved</Nav.item>;
+		return <Nav.item className='save saved'>salvo</Nav.item>;
 	};
 
 	const clearError = ()=>{
@@ -223,11 +223,11 @@ const HomePage =(props)=>{
 				</SplitPane>
 			</div>
 			<div className={`floatingSaveButton${unsavedChanges ? ' show' : ''}`} onClick={save}>
-				Save current <i className='fas fa-save' />
+				Salvar atual <i className='fas fa-save' />
 			</div>
 
 			<a href='/new' className='floatingNewButton'>
-				Create your own <i className='fas fa-magic' />
+				Crie o seu <i className='fas fa-magic' />
 			</a>
 		</div>
 	);

@@ -32,7 +32,7 @@ const NewBrew = ()=>{
 
 			const type = file.name.split('.').pop().toLowerCase();
 
-			alert(`This file is invalid: ${!type ? 'Missing file extension' :`.${type} files are not supported`}. Only .txt files exported from the Homebrewery are allowed.`);
+			alert(`Este arquivo e invalido: ${!type ? 'Extensao de arquivo ausente' :`arquivos .${type} nao sao suportados`}. Somente arquivos .txt exportados da Iniciativa T20 sao permitidos.`);
 
 			console.log(file);
 		};
@@ -48,7 +48,7 @@ const NewBrew = ()=>{
 		// TRUE if data in any local storage key AND approval given
 		// FALSE if data in any local storage key AND approval declined
 		return (!(currentText || currentStyle || currentMeta) || confirm(
-			`You have made changes in the new brew space. If you continue, that information will be PERMANENTLY LOST.\nAre you sure you wish to continue?`
+			`Voce fez alteracoes no espaco de novo documento. Se continuar, essas informacoes serao PERMANENTEMENTE PERDIDAS.\nTem certeza de que deseja continuar?`
 		));
 	};
 
@@ -70,7 +70,7 @@ const NewBrew = ()=>{
 				className='new'
 				color='purple'
 				icon='fa-solid fa-plus-square'>
-					new
+					novo
 			</Nav.item>
 			<Nav.item
 				className='new'
@@ -78,7 +78,7 @@ const NewBrew = ()=>{
 				newTab={true}
 				color='purple'
 				icon='fa-solid fa-file'>
-					resume draft
+					retomar rascunho
 			</Nav.item>
 			<Nav.item
 				className='fromBlank'
@@ -86,7 +86,7 @@ const NewBrew = ()=>{
 				color='yellow'
 				icon='fa-solid fa-file-circle-plus'
 				onClick={()=>{ clearLocalStorage(); }}>
-					from blank
+					em branco
 			</Nav.item>
 			<Nav.item
 				className='fromFile'
@@ -94,7 +94,7 @@ const NewBrew = ()=>{
 				icon='fa-solid fa-upload'
 				onClick={()=>{ document.getElementById('uploadTxt').click(); }}>
 				<input id='uploadTxt' className='newFromLocal' type='file' onChange={handleFileChange} style={{ display: 'none' }} />
-					from file
+					de um arquivo
 			</Nav.item>
 		</Nav.dropdown>
 	);

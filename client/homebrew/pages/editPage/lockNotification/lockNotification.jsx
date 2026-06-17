@@ -8,7 +8,7 @@ function LockNotification(props) {
 		shareId         : 0,
 		disableLock     : ()=>{},
 		lock            : {},
-		message         : 'Unable to retrieve Lock Message',
+		message         : 'Nao foi possivel recuperar a mensagem de bloqueio',
 		reviewRequested : false,
 		...props
 	};
@@ -23,19 +23,19 @@ function LockNotification(props) {
 	};
 
 	const renderReviewButton = function(){
-		if(reviewState){ return <button className='inactive'>REVIEW REQUESTED</button>; };
-		return <button onClick={removeLock}>REQUEST LOCK REMOVAL</button>;
+		if(reviewState){ return <button className='inactive'>REVISAO SOLICITADA</button>; };
+		return <button onClick={removeLock}>SOLICITAR REMOCAO DO BLOQUEIO</button>;
 	};
 
-	return <Dialog className='lockNotification' blocking closeText='CONTINUE TO EDITOR' >
-		<h1>BREW LOCKED</h1>
-		<p>This brew been locked by the Administrators. It will not be accessible by any method other than the Editor until the lock is removed.</p>
+	return <Dialog className='lockNotification' blocking closeText='CONTINUAR PARA O EDITOR' >
+		<h1>DOCUMENTO BLOQUEADO</h1>
+		<p>Este documento foi bloqueado pelos Administradores. Ele nao podera ser acessado por nenhum metodo alem do Editor ate que o bloqueio seja removido.</p>
 		<hr />
-		<h3>LOCK REASON</h3>
+		<h3>MOTIVO DO BLOQUEIO</h3>
 		<p>{props.message}</p>
 		<hr />
-		<p>Once you have resolved this issue, click REQUEST LOCK REMOVAL to notify the Administrators for review.</p>
-		<p>Click CONTINUE TO EDITOR to temporarily hide this notification; it will reappear the next time the page is reloaded.</p>
+		<p>Assim que tiver resolvido o problema, clique em SOLICITAR REMOCAO DO BLOQUEIO para notificar os Administradores para revisao.</p>
+		<p>Clique em CONTINUAR PARA O EDITOR para ocultar temporariamente esta notificacao; ela reaparecera na proxima vez que a pagina for recarregada.</p>
 		{renderReviewButton()}
 	</Dialog>;
 };

@@ -6,17 +6,17 @@ import Nav from './nav.jsx';
 export default function(props){
 	return <Nav.dropdown>
 		<Nav.item color='grey' icon='fas fa-question-circle'>
-			need help?
+			precisa de ajuda?
 		</Nav.item>
 		<Nav.item color='red' icon='fas fa-fw fa-bug'
 			href={`https://www.reddit.com/r/homebrewery/submit?selftext=true&text=${encodeURIComponent(dedent`
-			- **Browser(s)** :
-			- **Operating System** :  
-			- **Legacy or v3 Renderer** :
-			- **Issue** :  `)}`}
+			- **Navegador(es)** :
+			- **Sistema Operacional** :
+			- **Renderizador Legacy ou v3** :
+			- **Problema** :  `)}`}
 			newTab={true}
 			rel='noopener noreferrer'>
-			report issue
+			relatar problema
 		</Nav.item>
 		<Nav.item color='green' icon='fas fa-question-circle'
 			href='/faq'
@@ -28,7 +28,7 @@ export default function(props){
 			href='/migrate'
 			newTab={true}
 			rel='noopener noreferrer'>
-			migrate
+			migrar
 		</Nav.item>
 	</Nav.dropdown>;
 };

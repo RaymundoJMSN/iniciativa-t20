@@ -82,7 +82,7 @@ const ListPage = createReactClass({
 	},
 
 	renderBrews : function(brews){
-		if(!brews || !brews.length) return <div className='noBrews'>No Brews.</div>;
+		if(!brews || !brews.length) return <div className='noBrews'>Nenhum documento.</div>;
 
 		return _.map(brews, (brew, idx)=>{
 			return <BrewItem brew={brew} key={idx} reportError={this.props.reportError} updateListFilter={ (tag)=>{ this.updateUrl(this.state.filterString, this.state.sortType, this.state.sortDir, tag); }}/>;
@@ -90,7 +90,7 @@ const ListPage = createReactClass({
 	},
 
 	sortBrewOrder : function(brew){
-		if(!brew.title){brew.title = 'No Title';}
+		if(!brew.title){brew.title = 'Sem titulo';}
 		const mapping = {
 			'alpha'   : _.deburr(brew.title.trim().toLowerCase()),
 			'created' : moment(brew.createdAt).format(),
@@ -181,7 +181,7 @@ const ListPage = createReactClass({
 				<i className='fas fa-search'></i>
 				<input
 					type='search'
-					placeholder='filter title/description'
+					placeholder='filtrar titulo/descricao'
 					onChange={this.handleFilterTextChange}
 					value={this.state.filterString}
 				/>
@@ -201,11 +201,11 @@ const ListPage = createReactClass({
 
 	renderSortOptions : function(){
 		return <div className='sort-container'>
-			<h6>Sort by :</h6>
-			{this.renderSortOption('Title', 'alpha')}
-			{this.renderSortOption('Created Date', 'created')}
-			{this.renderSortOption('Updated Date', 'updated')}
-			{this.renderSortOption('Views', 'views')}
+			<h6>Ordenar por :</h6>
+			{this.renderSortOption('Titulo', 'alpha')}
+			{this.renderSortOption('Data de criacao', 'created')}
+			{this.renderSortOption('Data de atualizacao', 'updated')}
+			{this.renderSortOption('Visualizacoes', 'views')}
 			{/* {this.renderSortOption('Latest', 'latest')} */}
 
 			{this.renderFilterOption()}
@@ -251,11 +251,11 @@ const ListPage = createReactClass({
 
 	renderBrewCollection : function(brewCollection){
 		if(brewCollection == []) return <div className='brewCollection'>
-			<h1>No Brews</h1>
+			<h1>Nenhum documento</h1>
 		</div>;
 		return _.map(brewCollection, (brewGroup, idx)=>{
 			return <div key={idx} className={`brewCollection ${brewGroup.class ?? ''}`}>
-				<h1 className={brewGroup.visible ? 'active' : 'inactive'} onClick={()=>{this.toggleBrewCollectionState(brewGroup.class);}}>{brewGroup.title || 'No Title'}</h1>
+				<h1 className={brewGroup.visible ? 'active' : 'inactive'} onClick={()=>{this.toggleBrewCollectionState(brewGroup.class);}}>{brewGroup.title || 'Sem titulo'}</h1>
 				{brewGroup.visible ? this.renderBrews(this.getSortedBrews(brewGroup.brews)) : <></>}
 			</div>;
 		});

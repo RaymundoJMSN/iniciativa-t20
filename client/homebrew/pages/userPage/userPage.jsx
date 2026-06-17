@@ -23,17 +23,16 @@ const UserPage = (props)=>{
 
 	const [error, setError] = useState(null);
 
-	const usernameWithS = props.username + (props.username.endsWith('s') ? `’` : `’s`);
 	const groupedBrews = _.groupBy(props.brews, (brew)=>brew.published ? 'published' : 'private');
 
 	const brewCollection = [
 		{
-			title : `${usernameWithS} published brews`,
+			title : `Documentos publicados de ${props.username}`,
 			class : 'published',
 			brews : groupedBrews.published || []
 		},
 		...(props.username === global.account?.username ? [{
-			title : `${usernameWithS} unpublished brews`,
+			title : `Documentos não publicados de ${props.username}`,
 			class : 'unpublished',
 			brews : groupedBrews.private || []
 		}] : [])

@@ -18,11 +18,11 @@ const HeaderNav = React.forwardRef(({}, pagesRef)=>{
 		// The property value is a function that returns the text to be used
 
 		const topLevelPages = {
-			'.frontCover'  : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Cover: ${text}` : 'Cover Page'; },
-			'.insideCover' : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Interior: ${text}` : 'Interior Cover Page'; },
-			'.partCover'   : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Section: ${text}` : 'Section Cover Page'; },
-			'.backCover'   : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Back: ${text}` : 'Rear Cover Page'; },
-			'.toc'         : ()=>{ return 'Table of Contents'; },
+			'.frontCover'  : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Capa: ${text}` : 'Capa'; },
+			'.insideCover' : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Interior: ${text}` : 'Capa interna'; },
+			'.partCover'   : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Seção: ${text}` : 'Capa de seção'; },
+			'.backCover'   : (el, pageType)=>{ const text = getHeaderContent(el); return text ? `Verso: ${text}` : 'Quarta capa'; },
+			'.toc'         : ()=>{ return 'Sumário'; },
 		};
 
 		const getHeaderContent = (el)=>el.querySelector('h1')?.textContent;
@@ -54,7 +54,7 @@ const HeaderNav = React.forwardRef(({}, pagesRef)=>{
 				link  : el.id
 			};
 			if(el.classList.contains('page')) {
-				let text = `Page ${el.id.slice(1)}`; // Get the page # by trimming off the 'p' from the ID
+				let text = `Página ${el.id.slice(1)}`; // Get the page # by trimming off the 'p' from the ID
 				const pageType = Object.keys(topLevelPages).find((pageType)=>el.querySelector(pageType));
 				if(pageType)
 					text += ` - ${topLevelPages[pageType](el, pageType)}`; // If a Top Level Page, add extra label

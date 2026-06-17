@@ -19,7 +19,7 @@ const ErrorBar = (props)=>{
 		<ul>
 			{props.errors.map((err, idx)=>{
 				return <li key={idx}>
-					Line {err.line} : {err.text}, '{err.type}' tag
+					Linha {err.line} : {err.text}, tag '{err.type}'
 				</li>;
 			})}
 		</ul>
@@ -27,10 +27,10 @@ const ErrorBar = (props)=>{
 
 	const renderProtip = ()=>(
 		<div className='protips'>
-			<h4>Protips!</h4>
-			{hasOpenError  && <div>Unmatched opening tag. Close your tags, like this {'</div>'}. Match types!</div>}
-			{hasCloseError && <div>Unmatched closing tag. Either remove it or check where it was opened.</div>}
-			{hasMatchError && <div>Type mismatch. Closed a tag with a different type.</div>}
+			<h4>Dicas!</h4>
+			{hasOpenError  && <div>Tag de abertura sem correspondência. Feche suas tags, assim {'</div>'}. Combine os tipos!</div>}
+			{hasCloseError && <div>Tag de fechamento sem correspondência. Remova-a ou verifique onde ela foi aberta.</div>}
+			{hasMatchError && <div>Tipos incompatíveis. Você fechou uma tag com um tipo diferente.</div>}
 		</div>
 	);
 
@@ -38,9 +38,9 @@ const ErrorBar = (props)=>{
 		<Dialog className='errorBar' closeText={DISMISS_BUTTON} >
 			<div>
 				<i className='fas fa-exclamation-triangle' />
-				<h2> There are HTML errors in your markup</h2>
+				<h2> Há erros de HTML no seu código</h2>
 				<small>
-					If these aren't fixed your brew will not render properly when you print it to PDF or share it
+					Se não forem corrigidos, seu documento não será exibido corretamente ao imprimir em PDF ou compartilhar
 				</small>
 				{renderErrors()}
 			</div>

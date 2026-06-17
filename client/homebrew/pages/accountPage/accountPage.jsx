@@ -42,30 +42,30 @@ const AccountPage = (props)=>{
 		return (
 			<>
 				<div className='dataGroup'>
-					<h1>Account Information <i className='fas fa-user'></i></h1>
-					<p><strong>Username: </strong>{accountDetails.username || 'No user currently logged in'}</p>
-					<p><strong>Last Login: </strong>{moment(accountDetails.issued).format('dddd, MMMM Do YYYY, h:mm:ss a ZZ') || '-'}</p>
+					<h1>Informações da Conta <i className='fas fa-user'></i></h1>
+					<p><strong>Usuário: </strong>{accountDetails.username || 'Nenhum usuário conectado no momento'}</p>
+					<p><strong>Último Acesso: </strong>{moment(accountDetails.issued).format('dddd, MMMM Do YYYY, h:mm:ss a ZZ') || '-'}</p>
 				</div>
 				<div className='dataGroup'>
-					<h3>Homebrewery Information <NaturalCritIcon /></h3>
-					<p><strong>Brews on Homebrewery: </strong>{accountDetails.mongoCount}</p>
+					<h3>Informações da Iniciativa T20 <NaturalCritIcon /></h3>
+					<p><strong>Documentos na Iniciativa T20: </strong>{accountDetails.mongoCount}</p>
 				</div>
 				<div className='dataGroup'>
-					<h3>Google Information <i className='fab fa-google-drive'></i></h3>
-					<p><strong>Linked to Google: </strong>{accountDetails.googleId ? 'YES' : 'NO'}</p>
+					<h3>Informações do Google <i className='fab fa-google-drive'></i></h3>
+					<p><strong>Vinculado ao Google: </strong>{accountDetails.googleId ? 'SIM' : 'NÃO'}</p>
 					{accountDetails.googleId && (
 						<p>
-							<strong>Brews on Google Drive: </strong>{accountDetails.googleCount ?? (
+							<strong>Documentos no Google Drive: </strong>{accountDetails.googleCount ?? (
 								<>
-									Unable to retrieve files - <a href='https://github.com/naturalcrit/homebrewery/discussions/1580'>follow these steps to renew your Google credentials.</a>
+									Não foi possível recuperar os arquivos - <a href='https://github.com/naturalcrit/homebrewery/discussions/1580'>siga estes passos para renovar suas credenciais do Google.</a>
 								</>
 							)}
 						</p>
 					)}
 				</div>
 				<div className='dataGroup'>
-					<h4>Default Save Location</h4>
-					{renderSaveLocationButton('Homebrewery', 'HOMEBREWERY')}
+					<h4>Local de Salvamento Padrão</h4>
+					{renderSaveLocationButton('Iniciativa T20', 'HOMEBREWERY')}
 					{renderSaveLocationButton('Google Drive', 'GOOGLE-DRIVE', accountDetails.googleId)}
 				</div>
 			</>

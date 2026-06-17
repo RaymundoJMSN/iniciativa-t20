@@ -30,7 +30,7 @@ const Navbar = createReactClass({
 			<Nav.section>
 				<Nav.logo />
 				<Nav.item href='/' className='homebrewLogo'>
-					<div>The Homebrewery</div>
+					<div>Iniciativa T20</div>
 				</Nav.item>
 				<Nav.item newTab={true} href='/changelog' color='purple' icon='far fa-file-alt'>
 					{`v${this.state.ver}`}

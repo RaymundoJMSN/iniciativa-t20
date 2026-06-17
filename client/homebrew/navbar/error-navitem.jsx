@@ -19,38 +19,38 @@ const ErrorNavItem = ({ error = '', clearError })=>{
 
 	if(status === 409) {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				{message ?? 'Conflict: please refresh to get latest changes'}
+				{message ?? 'Conflito: atualize a pagina para obter as mudancas mais recentes'}
 			</div>
 		</Nav.item>;
 	}
 
 	if(status === 412) {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				{message ?? 'Your client is out of date. Please save your changes elsewhere and refresh.'}
+				{message ?? 'Seu cliente esta desatualizado. Salve suas mudancas em outro lugar e atualize a pagina.'}
 			</div>
 		</Nav.item>;
 	}
 
 	if(HBErrorCode === '04') {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				You are no longer signed in as an author of
-				this brew! Were you signed out from a different
-				window? Visit our log in page, then try again!
+				Voce nao esta mais autenticado como autor
+				deste documento! Voce foi desconectado em outra
+				janela? Acesse nossa pagina de login e tente novamente!
 				<br></br>
 				<a target='_blank' rel='noopener noreferrer'
 					href={`https://www.naturalcrit.com/login?redirect=${window.location.href}`}>
 					<div className='confirm'>
-						Sign In
+						Entrar
 					</div>
 				</a>
 				<div className='deny'>
-					Not Now
+					Agora nao
 				</div>
 			</div>
 		</Nav.item>;
@@ -58,30 +58,30 @@ const ErrorNavItem = ({ error = '', clearError })=>{
 
 	if(response?.body?.errors?.[0].reason == 'storageQuotaExceeded') {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-		Oops!
+		Ops!
 			<div className='errorContainer' onClick={clearError}>
-			Can't save because your Google Drive seems to be full!
+			Nao foi possivel salvar porque seu Google Drive parece estar cheio!
 			</div>
 		</Nav.item>;
 	}
 
 	if(response?.req.url.match(/^\/api.*Google.*$/m)){
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				Looks like your Google credentials have
-				expired! Visit our log in page to sign out
-				and sign back in with Google,
-				then try saving again!
+				Parece que suas credenciais do Google
+				expiraram! Acesse nossa pagina de login para sair
+				e entrar novamente com o Google,
+				e entao tente salvar de novo!
 				<br></br>
 				<a target='_blank' rel='noopener noreferrer'
 					href={`https://www.naturalcrit.com/login?redirect=${window.location.href}`}>
 					<div className='confirm'>
-						Sign In
+						Entrar
 					</div>
 				</a>
 				<div className='deny'>
-					Not Now
+					Agora nao
 				</div>
 			</div>
 		</Nav.item>;
@@ -89,56 +89,56 @@ const ErrorNavItem = ({ error = '', clearError })=>{
 
 	if(HBErrorCode === '09') {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				Looks like there was a problem retreiving
-				the theme, or a theme that it inherits,
-				for this brew. Verify that brew <a className='lowercase' target='_blank' rel='noopener noreferrer' href={`/share/${response.body.brewId}`}>
-					{response.body.brewId}</a> still exists!
+				Parece que houve um problema ao recuperar
+				o tema, ou um tema do qual ele herda,
+				para este documento. Verifique se o documento <a className='lowercase' target='_blank' rel='noopener noreferrer' href={`/share/${response.body.brewId}`}>
+					{response.body.brewId}</a> ainda existe!
 			</div>
 		</Nav.item>;
 	}
 
 	if(HBErrorCode === '10') {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				Looks like the brew you have selected
-				as a theme is not tagged for use as a
-				theme. Verify that
-				brew <a className='lowercase' target='_blank' rel='noopener noreferrer' href={`/share/${response.body.brewId}`}>
-					{response.body.brewId}</a> has the <span className='lowercase'>meta:theme</span> tag!
+				Parece que o documento que voce selecionou
+				como tema nao esta marcado para uso como
+				tema. Verifique se o
+				documento <a className='lowercase' target='_blank' rel='noopener noreferrer' href={`/share/${response.body.brewId}`}>
+					{response.body.brewId}</a> possui a tag <span className='lowercase'>meta:theme</span>!
 			</div>
 		</Nav.item>;
 	}
 
 	if(HBErrorCode === '13') {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				Server has lost connection to the database.
+				O servidor perdeu a conexao com o banco de dados.
 			</div>
 		</Nav.item>;
 	}
 
 	if(errorCode === 'ECONNABORTED') {
 		return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-			Oops!
+			Ops!
 			<div className='errorContainer' onClick={clearError}>
-				The request to the server was interrupted or timed out.
-				This can happen due to a network issue, or if
-				trying to save a particularly large brew.
-				Please check your internet connection and try again.
+				A requisicao ao servidor foi interrompida ou expirou.
+				Isso pode acontecer por um problema de rede, ou ao
+				tentar salvar um documento especialmente grande.
+				Verifique sua conexao com a internet e tente novamente.
 			</div>
 		</Nav.item>;
 	}
 
 	return <Nav.item className='save error' icon='fas fa-exclamation-triangle'>
-		Oops!
+		Ops!
 		<div className='errorContainer'>
-			Looks like there was a problem saving. <br />
-			Report the issue <a target='_blank' rel='noopener noreferrer' href={`https://github.com/naturalcrit/homebrewery/issues/new?template=save_issue.yml&error-code=${encodeURIComponent(errMsg)}`}>
-			here
+			Parece que houve um problema ao salvar. <br />
+			Relate o problema <a target='_blank' rel='noopener noreferrer' href={`https://github.com/naturalcrit/homebrewery/issues/new?template=save_issue.yml&error-code=${encodeURIComponent(errMsg)}`}>
+			aqui
 			</a>.
 		</div>
 	</Nav.item>;

@@ -55,7 +55,7 @@ const SharePage = (props)=>{
 
 		return (
 			<Nav.item color='orange' icon='fas fa-pencil-alt' href={`/edit/${editLink}`}>
-				edit
+				editar
 			</Nav.item>
 		);
 	};
@@ -80,30 +80,30 @@ const SharePage = (props)=>{
 							<PrintNavItem />
 							<Nav.dropdown>
 								<Nav.item color='red' icon='fas fa-code'>
-									source
+									código
 								</Nav.item>
 								<Nav.item color='blue' icon='fas fa-eye' href={`/source/${processShareId()}`}>
-									view
+									visualizar
 								</Nav.item>
 								{renderEditLink()}
 								<Nav.item color='blue' icon='fas fa-download' href={`/download/${processShareId()}`}>
-									download
+									baixar
 								</Nav.item>
 								<Nav.item color='blue' icon='fas fa-clone' href={`/new/${processShareId()}`}>
-									clone to new
+									clonar para novo
 								</Nav.item>
 								<Nav.item
 									color='blue'
 									icon='fas fa-link'
 									onClick={()=>{navigator.clipboard.writeText(`${global.config.baseUrl}/share/${processShareId()}`);}}>
-									copy url
+									copiar url
 								</Nav.item>
 								{currentBrewRendererPageNum > 1 &&
 									<Nav.item
 										color='blue'
 										icon='fas fa-hashtag'
 										onClick={()=>{navigator.clipboard.writeText(`${global.config.baseUrl}/share/${processShareId()}#p${currentBrewRendererPageNum}`);}}>
-										copy url (page {currentBrewRendererPageNum})
+										copiar url (página {currentBrewRendererPageNum})
 									</Nav.item>}
 							</Nav.dropdown>
 						</>

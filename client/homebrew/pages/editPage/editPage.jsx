@@ -101,7 +101,7 @@ const EditPage = (props)=>{
 		document.addEventListener('keydown', handleControlKeys);
 		window.onbeforeunload = ()=>{
 			if(unsavedChangesRef.current)
-				return 'You have unsaved changes!';
+				return 'Voce tem alteracoes nao salvas!';
 		};
 		return ()=>{
 			document.removeEventListener('keydown', handleControlKeys);
@@ -258,33 +258,33 @@ const EditPage = (props)=>{
 
 	const renderGoogleDriveIcon = ()=>(
 		<Nav.item className='googleDriveStorage' onClick={handleGoogleClick}>
-			<img src={googleDriveIcon} className={saveGoogle ? '' : 'inactive'} alt='Google Drive icon' />
+			<img src={googleDriveIcon} className={saveGoogle ? '' : 'inactive'} alt='Icone do Google Drive' />
 
 			{confirmGoogleTransfer && (
 				<div className='errorContainer' onClick={closeAlerts}>
 					{saveGoogle
-						? 'Would you like to transfer this brew from your Google Drive storage back to the Homebrewery?'
-						: 'Would you like to transfer this brew from the Homebrewery to your personal Google Drive storage?'}
+						? 'Deseja transferir este documento do seu armazenamento no Google Drive de volta para a Iniciativa T20?'
+						: 'Deseja transferir este documento da Iniciativa T20 para o seu armazenamento pessoal no Google Drive?'}
 					<br />
-					<div className='confirm' onClick={toggleGoogleStorage}> Yes </div>
-					<div className='deny'>                                  No  </div>
+					<div className='confirm' onClick={toggleGoogleStorage}> Sim </div>
+					<div className='deny'>                                  Nao </div>
 				</div>
 			)}
 
 			{alertLoginToTransfer && (
 				<div className='errorContainer' onClick={closeAlerts}>
-					You must be signed in to a Google account to transfer between the homebrewery and Google Drive!
+					Voce precisa estar conectado a uma conta Google para transferir entre a Iniciativa T20 e o Google Drive!
 					<a target='_blank' rel='noopener noreferrer' href={`https://www.naturalcrit.com/login?redirect=${window.location.href}`}>
-						<div className='confirm'> Sign In </div>
+						<div className='confirm'> Entrar </div>
 					</a>
-					<div className='deny'>      Not Now </div>
+					<div className='deny'>      Agora nao </div>
 				</div>
 			)}
 
 			{alertTrashedGoogleBrew && (
 				<div className='errorContainer' onClick={closeAlerts}>
-					This brew is currently in your Trash folder on Google Drive!<br />
-					If you want to keep it, make sure to move it before it is deleted permanently!<br />
+					Este documento esta atualmente na sua Lixeira no Google Drive!<br />
+					Se quiser mante-lo, mova-o antes que seja excluido permanentemente!<br />
 					<div className='confirm'> OK </div>
 				</div>
 			)}
@@ -294,36 +294,36 @@ const EditPage = (props)=>{
 	const renderSaveButton = ()=>{
 		// #1 - Currently saving, show SAVING
 		if(isSaving)
-			return <Nav.item className='save' icon='fas fa-spinner fa-spin'>saving...</Nav.item>;
+			return <Nav.item className='save' icon='fas fa-spinner fa-spin'>salvando...</Nav.item>;
 
 		// #2 - Unsaved changes exist, autosave is OFF and warning timer has expired, show AUTOSAVE WARNING
 		if(unsavedChanges && warnUnsavedChanges) {
 			resetWarnUnsavedTimer();
 			const elapsedTime = Math.round((new Date() - lastSavedTime) / 1000 / 60);
 			const text = elapsedTime === 0
-				? 'Autosave is OFF.'
-				: `Autosave is OFF, and you haven't saved for ${elapsedTime} minutes.`;
+				? 'O salvamento automatico esta DESLIGADO.'
+				: `O salvamento automatico esta DESLIGADO, e voce nao salva ha ${elapsedTime} minutos.`;
 
 			return <Nav.item className='save error' icon='fas fa-exclamation-circle'>
-							Reminder...
+							Lembrete...
 				<div className='errorContainer'>{text}</div>
 			</Nav.item>;
 		}
 
 		// #3 - Unsaved changes exist, click to save, show SAVE NOW
 		if(unsavedChanges)
-			return <Nav.item className='save' onClick={()=>trySave(true, true, saveGoogle)} color='blue' icon='fas fa-save'>save now</Nav.item>;
+			return <Nav.item className='save' onClick={()=>trySave(true, true, saveGoogle)} color='blue' icon='fas fa-save'>salvar agora</Nav.item>;
 
 		// #4 - No unsaved changes, autosave is ON, show AUTO-SAVED
 		if(autoSaveEnabled)
-			return <Nav.item className='save saved'>auto-saved</Nav.item>;
+			return <Nav.item className='save saved'>salvo automaticamente</Nav.item>;
 
 		// #5 - No unsaved changes, and has never been saved, hide the button
 		if(neverSaved)
-			return <Nav.item className='save neverSaved'>save now</Nav.item>;
+			return <Nav.item className='save neverSaved'>salvar agora</Nav.item>;
 
 		// DEFAULT - No unsaved changes, show SAVED
-		return <Nav.item className='save saved'>saved</Nav.item>;
+		return <Nav.item className='save saved'>salvo</Nav.item>;
 	};
 
 	const toggleAutoSave = ()=>{
@@ -336,7 +336,7 @@ const EditPage = (props)=>{
 
 	const renderAutoSaveButton = ()=>(
 		<Nav.item onClick={toggleAutoSave}>
-			Autosave <i className={autoSaveEnabled ? 'fas fa-power-off active' : 'fas fa-power-off'}></i>
+			Salvamento automatico <i className={autoSaveEnabled ? 'fas fa-power-off active' : 'fas fa-power-off'}></i>
 		</Nav.item>
 	);
 

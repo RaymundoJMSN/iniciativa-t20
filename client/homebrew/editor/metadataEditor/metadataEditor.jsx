@@ -126,11 +126,11 @@ const MetadataEditor = createReactClass({
 
 	handleDelete : function(){
 		if(this.props.metadata.authors && this.props.metadata.authors.length <= 1){
-			if(!confirm('Are you sure you want to delete this brew? Because you are the only owner of this brew, the document will be deleted permanently.')) return;
-			if(!confirm('Are you REALLY sure? You will not be able to recover the document.')) return;
+			if(!confirm('Tem certeza de que deseja excluir este documento? Como você é o único dono deste documento, ele será excluído permanentemente.')) return;
+			if(!confirm('Tem REALMENTE certeza? Você não poderá recuperar o documento.')) return;
 		} else {
-			if(!confirm('Are you sure you want to remove this brew from your collection? This will remove you as an editor, but other owners will still be able to access the document.')) return;
-			if(!confirm('Are you REALLY sure? You will lose editor access to this document.')) return;
+			if(!confirm('Tem certeza de que deseja remover este documento da sua coleção? Isso removerá você como editor, mas os outros donos ainda poderão acessar o documento.')) return;
+			if(!confirm('Tem REALMENTE certeza? Você perderá o acesso de editor a este documento.')) return;
 		}
 
 		request.delete(`/api/${this.props.metadata.googleId ?? ''}${this.props.metadata.editId}`)
@@ -147,11 +147,11 @@ const MetadataEditor = createReactClass({
 	renderPublish : function(){
 		if(this.props.metadata.published){
 			return <button className='unpublish' onClick={()=>this.handlePublish(false)}>
-				<i className='fas fa-ban' /> unpublish
+				<i className='fas fa-ban' /> despublicar
 			</button>;
 		} else {
 			return <button className='publish' onClick={()=>this.handlePublish(true)}>
-				<i className='fas fa-globe' /> publish
+				<i className='fas fa-globe' /> publicar
 			</button>;
 		}
 	},
@@ -160,22 +160,22 @@ const MetadataEditor = createReactClass({
 		if(!this.props.metadata.editId) return;
 
 		return <div className='field delete'>
-			<label>delete</label>
+			<label>excluir</label>
 			<div className='value'>
 				<button className='publish' onClick={this.handleDelete}>
-					<i className='fas fa-trash-alt' /> delete brew
+					<i className='fas fa-trash-alt' /> excluir documento
 				</button>
 			</div>
 		</div>;
 	},
 
 	renderAuthors : function(){
-		let text = 'None.';
+		let text = 'Nenhum.';
 		if(this.props.metadata.authors && this.props.metadata.authors.length){
 			text = this.props.metadata.authors.join(', ');
 		}
 		return <div className='field authors'>
-			<label>authors</label>
+			<label>autores</label>
 			<div className='value'>
 				{text}
 			</div>
@@ -196,7 +196,7 @@ const MetadataEditor = createReactClass({
 						<img src={texture}/>
 					</div>
 					<div className='preview'>
-						<h6>{theme.name} preview</h6>
+						<h6>prévia de {theme.name}</h6>
 						<img src={preview}/>
 					</div>
 				</div>;
@@ -204,21 +204,21 @@ const MetadataEditor = createReactClass({
 		};
 
 		const currentRenderer = this.props.metadata.renderer;
-		const currentThemeDisplay = this.props.themeBundle?.name ? `${this.props.themeBundle.author ?? currentRenderer} : ${this.props.themeBundle.name}` : 'No Theme Selected';
+		const currentThemeDisplay = this.props.themeBundle?.name ? `${this.props.themeBundle.author ?? currentRenderer} : ${this.props.themeBundle.name}` : 'Nenhum tema selecionado';
 		let dropdown;
 
 		if(currentRenderer == 'legacy') {
 			dropdown =
 				<div className='disabled value' trigger='disabled'>
-					<div> Themes are not supported in the Legacy Renderer </div>
+					<div> Temas não são suportados no renderer Legacy </div>
 				</div>;
 		} else {
 			dropdown =
-				<div className='value' data-tooltip-top='Select from the list below (built-in themes and brews you have tagged "meta:theme"), or paste in the Share URL or Share ID of any brew.'>
+				<div className='value' data-tooltip-top='Selecione na lista abaixo (temas internos e documentos que você marcou com "meta:theme"), ou cole a URL de Compartilhar ou o ID de Compartilhar de qualquer documento.'>
 					<Combobox trigger='click'
 						className='themes-dropdown'
 						default={currentThemeDisplay}
-						placeholder='Select from below, or enter the Share URL or ID of a brew with the meta:theme tag'
+						placeholder='Selecione abaixo, ou insira a URL de Compartilhar ou o ID de um documento com a tag meta:theme'
 						onSelect={(value)=>this.handleTheme(value)}
 						onEntry={(e)=>{
 							e.target.setCustomValidity('');	//Clear the validation popup while typing
@@ -236,7 +236,7 @@ const MetadataEditor = createReactClass({
 		}
 
 		return <div className='field themes'>
-			<label>theme</label>
+			<label>tema</label>
 			{dropdown}
 		</div>;
 	},
@@ -255,8 +255,8 @@ const MetadataEditor = createReactClass({
 		};
 
 		return <div className='field language'>
-			<label>language</label>
-			<div className='value' data-tooltip-right='Sets the HTML Lang property for your brew. May affect hyphenation or spellcheck.'>
+			<label>idioma</label>
+			<div className='value' data-tooltip-right='Define a propriedade HTML Lang do seu documento. Pode afetar a hifenização ou a verificação ortográfica.'>
 				<Combobox trigger='click'
 					className='language-dropdown'
 					default={this.props.metadata.lang || ''}
@@ -301,17 +301,17 @@ const MetadataEditor = createReactClass({
 						onChange={(e)=>this.handleRenderer('V3', e)} />
 					V3
 				</label>
-				<small><a href='/legacy' target='_blank' rel='noopener noreferrer'>Click here to see the demo page for the old Legacy renderer!</a></small>
+				<small><a href='/legacy' target='_blank' rel='noopener noreferrer'>Clique aqui para ver a página de demonstração do antigo renderer Legacy!</a></small>
 			</div>
 		</div>;
 	},
 
 	render : function(){
 		return <div className='metadataEditor'>
-			<h1>Properties Editor</h1>
+			<h1>Editor de Propriedades</h1>
 
 			<div className='field title'>
-				<label>title</label>
+				<label>título</label>
 				<input type='text' className='value'
 					defaultValue={this.props.metadata.title}
 					onChange={(e)=>this.handleFieldChange('title', e)} />
@@ -319,15 +319,15 @@ const MetadataEditor = createReactClass({
 			<div className='field-group'>
 				<div className='field-column'>
 					<div className='field description'>
-						<label>description</label>
+						<label>descrição</label>
 						<textarea defaultValue={this.props.metadata.description} className='value'
 							onChange={(e)=>this.handleFieldChange('description', e)} />
 					</div>
 					<div className='field thumbnail'>
-						<label>thumbnail</label>
+						<label>miniatura</label>
 						<input type='text'
 							defaultValue={this.props.metadata.thumbnail}
-							placeholder='https://my.thumbnail.url'
+							placeholder='https://minha.url.de.miniatura'
 							className='value'
 							onChange={(e)=>this.handleFieldChange('thumbnail', e)} />
 						<button className='display' onClick={this.toggleThumbnailDisplay}>
@@ -344,10 +344,10 @@ const MetadataEditor = createReactClass({
 					<TagInput
 						label='tags'
 						valuePatterns={/^\s*(?:(?:group|meta|system|type)\s*:\s*)?[A-Za-z0-9][A-Za-z0-9 \/\\.&_\-]{0,40}\s*$/}
-						placeholder='add tag' unique={true}
+						placeholder='adicionar tag' unique={true}
 						values={this.props.metadata.tags}
 						onChange={(e)=>this.handleFieldChange('tags', e)}
-						tooltip='You may start tags with "type", "system", "group" or "meta" followed by a colon ":", these will be colored in your userpage.'
+						tooltip='Você pode iniciar as tags com "type", "system", "group" ou "meta" seguidos de dois-pontos ":"; elas serão coloridas na sua página de usuário.'
 					/>
 				</div>
 			</div>
@@ -359,20 +359,20 @@ const MetadataEditor = createReactClass({
 
 			{this.renderRenderOptions()}
 
-			<h2>Authors</h2>
+			<h2>Autores</h2>
 
 			{this.renderAuthors()}
 
 			<div className='field invitedAuthors'>
-				<label>Invited authors</label>
+				<label>Autores convidados</label>
 				<div className='value'>
 					<TagInput
 						label='invited authors'
 						valuePatterns={/.+/}
 						validators={[(v)=>!this.props.metadata.authors?.includes(v)]}
-						placeholder='invite author' unique={true}
-						tooltip={`Invited author usernames are case sensitive.
-							After adding an invited author, send them the edit link. There, they can choose to accept or decline the invitation.`}
+						placeholder='convidar autor' unique={true}
+						tooltip={`Os nomes de usuário dos autores convidados diferenciam maiúsculas de minúsculas.
+							Após adicionar um autor convidado, envie a ele o link de edição. Lá, ele poderá escolher aceitar ou recusar o convite.`}
 						values={this.props.metadata.invitedAuthors}
 						onChange={(e)=>this.handleFieldChange('invitedAuthors', e)}
 					/>
@@ -380,13 +380,13 @@ const MetadataEditor = createReactClass({
 			</div>
 
 
-			<h2>Privacy</h2>
+			<h2>Privacidade</h2>
 
 			<div className='field publish'>
-				<label>publish</label>
+				<label>publicar</label>
 				<div className='value'>
 					{this.renderPublish()}
-					<small>Published brews are searchable in <a href='/vault'>the Vault</a> and visible on your user page.  Unpublished brews are not indexed in the Vault or visible on your user page, but can still be shared and indexed by search engines.  You can unpublish a brew any time.</small>
+					<small>Documentos publicados podem ser pesquisados no <a href='/vault'>Cofre</a> e ficam visíveis na sua página de usuário.  Documentos não publicados não são indexados no Cofre nem ficam visíveis na sua página de usuário, mas ainda podem ser compartilhados e indexados por mecanismos de busca.  Você pode despublicar um documento a qualquer momento.</small>
 				</div>
 			</div>
 

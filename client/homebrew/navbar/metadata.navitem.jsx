@@ -28,7 +28,7 @@ const MetadataNav = createReactClass({
 	},
 
 	getAuthors : function(){
-		if(!this.props.brew.authors || this.props.brew.authors.length == 0) return 'No authors';
+		if(!this.props.brew.authors || this.props.brew.authors.length == 0) return 'Nenhum autor';
 		return <>
 			{this.props.brew.authors.map((author, idx, arr)=>{
 				const spacer = arr.length - 1 == idx ? <></> : <span>, </span>;
@@ -38,7 +38,7 @@ const MetadataNav = createReactClass({
 	},
 
 	getTags : function(){
-		if(!this.props.brew.tags || this.props.brew.tags.length == 0) return 'No tags';
+		if(!this.props.brew.tags || this.props.brew.tags.length == 0) return 'Nenhuma tag';
 		return <>
 			{this.props.brew.tags.map((tag, idx)=>{
 				return <span className='tag' key={idx}>{tag}</span>;
@@ -49,11 +49,11 @@ const MetadataNav = createReactClass({
 	renderMetaWindow : function(){
 		return <div className={`window ${this.state.showMetaWindow ? 'active' : 'inactive'}`}>
 			<div className='row'>
-				<h4>Description</h4>
-				<p>{this.props.brew.description || 'No description.'}</p>
+				<h4>Descricao</h4>
+				<p>{this.props.brew.description || 'Sem descricao.'}</p>
 			</div>
 			<div className='row'>
-				<h4>Authors</h4>
+				<h4>Autores</h4>
 				<p>{this.getAuthors()}</p>
 			</div>
 			<div className='row'>
@@ -61,7 +61,7 @@ const MetadataNav = createReactClass({
 				<p>{this.getTags()}</p>
 			</div>
 			<div className='row'>
-				<h4>Updated</h4>
+				<h4>Atualizado</h4>
 				<p>{Moment(this.props.brew.updatedAt).fromNow()}</p>
 			</div>
 		</div>;

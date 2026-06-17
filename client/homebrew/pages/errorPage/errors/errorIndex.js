@@ -14,257 +14,257 @@ const errorIndex = (props)=>{
 	return {
 		// Default catch all
 		'00' : dedent`
-			## An unknown error occurred!
-			
-			We aren't sure what happened, but our server wasn't able to find what you
-			were looking for.`,
+			## Ocorreu um erro desconhecido!
+
+			Não temos certeza do que aconteceu, mas nosso servidor não conseguiu encontrar o que
+			você estava procurando.`,
 
 		// General Google load error
 		'01' : dedent`
-			## An error occurred while retrieving this brew from Google Drive!
-			
-			Google is able to see the brew at this link, but reported an error while attempting to retrieve it.
+			## Ocorreu um erro ao recuperar este documento do Google Drive!
 
-			### Refreshing your Google Credentials
+			O Google consegue ver o documento neste link, mas relatou um erro ao tentar recuperá-lo.
 
-			This issue is likely caused by an issue with your Google credentials; if you are the owner of this file, the following steps may resolve the issue:
+			### Renovando suas Credenciais do Google
 
-			- Go to https://www.naturalcrit.com/login and click logout if present (in small text at the bottom of the page).
-			- Click "Sign In with Google", which will refresh your Google credentials.
-			- After completing the sign in process, return to Homebrewery and refresh/reload the page so that it can pick up the updated credentials.
-			- If this was the source of the issue, it should now be resolved.
+			Esse problema provavelmente é causado por uma falha nas suas credenciais do Google; se você é o dono deste arquivo, os passos a seguir podem resolver o problema:
 
-			If following these steps does not resolve the issue, please let us know!`,
+			- Acesse https://www.naturalcrit.com/login e clique em logout, se houver (em texto pequeno na parte inferior da página).
+			- Clique em "Sign In with Google", o que renovará suas credenciais do Google.
+			- Após concluir o processo de login, retorne à Iniciativa T20 e atualize/recarregue a página para que ela possa captar as credenciais atualizadas.
+			- Se essa era a origem do problema, ele já deve estar resolvido.
+
+			Se seguir esses passos não resolver o problema, por favor avise-nos!`,
 
 		// Google Drive - 404 : brew deleted or access denied
 		'02' : dedent`
-			## We can't find this brew in Google Drive!
-			
-			This file was saved on Google Drive, but this link doesn't work anymore.
+			## Não conseguimos encontrar este documento no Google Drive!
+
+			Este arquivo foi salvo no Google Drive, mas este link não funciona mais.
 			${props.brew.authors?.length > 0
-		? `Note that this brew belongs to the Homebrewery account **${props.brew.authors[0]}**,
+		? `Observe que este documento pertence à conta da Iniciativa T20 **${props.brew.authors[0]}**,
 				${props.brew.account
-		? `which is
+		? `que é
 						${props.brew.authors[0] == props.brew.account
-		? `your account.`
-		: `not your account (you are currently signed in as **${props.brew.account}**).`
+		? `a sua conta.`
+		: `não é a sua conta (você está conectado no momento como **${props.brew.account}**).`
 }`
-		: 'and you are not currently signed in to any account.'
+		: 'e você não está conectado a nenhuma conta no momento.'
 }`
 		: ''
 }
-			The Homebrewery cannot delete files from Google Drive on its own, so there
-			are three most likely possibilities:
+			A Iniciativa T20 não consegue excluir arquivos do Google Drive por conta própria, então
+			há três possibilidades mais prováveis:
 			:
-			- **The Google Drive files may have been accidentally deleted.** Look in
-			the Google Drive account that owns this brew (or ask the owner to do so),
-			and make sure the Homebrewery folder is still there, and that it holds your brews
-			as text files.
-			- **You may have changed the sharing settings for your files.** If the files
-			are still on Google Drive, change all of them to be shared *with everyone who has
-			the link* so the Homebrewery can access them.
-			- **The Google Account may be closed.** Google may have removed the account
-			due to inactivity or violating a Google policy. Make sure the owner can
-			still access Google Drive normally and upload/download files to it.
-			
-			If the file isn't found, Google Drive usually puts your file in your Trash folder for
-			30 days. Assuming the trash hasn't been emptied yet, it might be worth checking.
-			You can also find the Activity tab on the right side of the Google Drive page, which
-			shows the recent activity on Google Drive. This can help you pin down the exact date
-			the brew was deleted or moved, and by whom.
+			- **Os arquivos no Google Drive podem ter sido excluídos acidentalmente.** Verifique
+			na conta do Google Drive que é dona deste documento (ou peça ao dono que faça isso),
+			e certifique-se de que a pasta da Iniciativa T20 ainda está lá, e de que ela contém seus documentos
+			como arquivos de texto.
+			- **Você pode ter alterado as configurações de compartilhamento dos seus arquivos.** Se os arquivos
+			ainda estão no Google Drive, altere todos eles para serem compartilhados *com qualquer pessoa que tenha
+			o link* para que a Iniciativa T20 possa acessá-los.
+			- **A Conta do Google pode estar encerrada.** O Google pode ter removido a conta
+			por inatividade ou por violar uma política do Google. Certifique-se de que o dono ainda consegue
+			acessar o Google Drive normalmente e enviar/baixar arquivos nele.
+
+			Se o arquivo não for encontrado, o Google Drive geralmente coloca seu arquivo na Lixeira por
+			30 dias. Supondo que a lixeira ainda não tenha sido esvaziada, pode valer a pena verificar.
+			Você também pode encontrar a aba Atividade no lado direito da página do Google Drive, que
+			mostra a atividade recente no Google Drive. Isso pode ajudar a identificar a data exata
+			em que o documento foi excluído ou movido, e por quem.
 			:
-			If the brew still isn't found, some people have had success asking Google to recover
-			accidentally deleted files at this link: 
+			Se o documento ainda não for encontrado, algumas pessoas tiveram sucesso pedindo ao Google para recuperar
+			arquivos excluídos acidentalmente neste link:
 			https://support.google.com/drive/answer/1716222?hl=en&ref_topic=7000946.
-			At the bottom of the page there is a button that says *Send yourself an Email*
-			and you will receive instructions on how to request the files be restored.
+			Na parte inferior da página há um botão que diz *Send yourself an Email*
+			e você receberá instruções sobre como solicitar a restauração dos arquivos.
 			:
-			Also note, if you prefer not to use your Google Drive for storage, you can always
-			change the storage location of a brew by clicking the Google drive icon by the
-			brew title and choosing *transfer my brew to/from Google Drive*.`,
+			Observe também que, se você preferir não usar seu Google Drive para armazenamento, sempre pode
+			alterar o local de armazenamento de um documento clicando no ícone do Google Drive ao lado do
+			título do documento e escolhendo *transferir meu documento para/do Google Drive*.`,
 
 		// User is not Authors list
 		'03' : dedent`
-		## Current signed-in user does not have editor access to this brew.
+		## O usuário conectado no momento não tem acesso de edição a este documento.
 
-		If you believe you should have access to this brew, ask one of its authors to invite you
-		as an author by opening the Edit page for the brew, viewing the {{fa,fa-info-circle}}
-		**Properties** tab, and adding your username to the "invited authors" list. You can
-		then try to access this document again.
-		
+		Se você acredita que deveria ter acesso a este documento, peça a um de seus autores que o convide
+		como autor abrindo a página de Edição do documento, acessando a aba {{fa,fa-info-circle}}
+		**Propriedades** e adicionando seu nome de usuário à lista de "autores convidados". Em seguida,
+		você pode tentar acessar este documento novamente.
+
 		:
 
-		**Brew Title:** ${escape(props.brew.brewTitle) || 'Unable to show title'}
+		**Título do Documento:** ${escape(props.brew.brewTitle) || 'Não foi possível mostrar o título'}
 
-		**Current Authors:** ${props.brew.authors?.map((author)=>{return `[${author}](/user/${encodeURIComponent(author)})`;}).join(', ') || 'Unable to list authors'}
-		
-		[Click here to be redirected to the brew's share page.](/share/${props.brew.shareId})`,
+		**Autores Atuais:** ${props.brew.authors?.map((author)=>{return `[${author}](/user/${encodeURIComponent(author)})`;}).join(', ') || 'Não foi possível listar os autores'}
+
+		[Clique aqui para ser redirecionado à página de compartilhamento do documento.](/share/${props.brew.shareId})`,
 
 		// User is not signed in; must be a user on the Authors List
 		'04' : dedent`
-		## Sign-in required to edit this brew.
-		
-		You must be logged in to one of the accounts listed as an author of this brew.
-		User is not logged in. Please log in [here](${loginUrl}).
-		
+		## É necessário entrar para editar este documento.
+
+		Você precisa estar conectado a uma das contas listadas como autora deste documento.
+		O usuário não está conectado. Por favor, entre [aqui](${loginUrl}).
+
 		:
 
-		**Brew Title:** ${escape(props.brew.brewTitle) || 'Unable to show title'}
+		**Título do Documento:** ${escape(props.brew.brewTitle) || 'Não foi possível mostrar o título'}
 
-		**Current Authors:** ${props.brew.authors?.map((author)=>{return `[${author}](/user/${encodeURIComponent(author)})`;}).join(', ') || 'Unable to list authors'}
+		**Autores Atuais:** ${props.brew.authors?.map((author)=>{return `[${author}](/user/${encodeURIComponent(author)})`;}).join(', ') || 'Não foi possível listar os autores'}
 
-		[Click here to be redirected to the brew's share page.](/share/${props.brew.shareId})`,
+		[Clique aqui para ser redirecionado à página de compartilhamento do documento.](/share/${props.brew.shareId})`,
 
 
 		// Brew load error
 		'05' : dedent`
-		## No Homebrewery document could be found.
-		
-		The server could not locate the Homebrewery document. It was likely deleted by
-		its owner.
-		
+		## Nenhum documento da Iniciativa T20 foi encontrado.
+
+		O servidor não conseguiu localizar o documento da Iniciativa T20. Provavelmente foi excluído por
+		seu dono.
+
 		:
 
-		**Requested access:** ${props.brew.accessType}
+		**Acesso solicitado:** ${props.brew.accessType}
 
-		**Brew ID:**  ${props.brew.brewId}`,
+		**ID do Documento:**  ${props.brew.brewId}`,
 
 		// Brew save error
 		'06' : dedent`
-		## Unable to save Homebrewery document.
-		
-		An error occurred wil attempting to save the Homebrewery document.`,
+		## Não foi possível salvar o documento da Iniciativa T20.
+
+		Ocorreu um erro ao tentar salvar o documento da Iniciativa T20.`,
 
 		// Brew delete error
 		'07' : dedent`
-		## Unable to delete Homebrewery document.
-		
-		An error occurred while attempting to remove the Homebrewery document.
-		
+		## Não foi possível excluir o documento da Iniciativa T20.
+
+		Ocorreu um erro ao tentar remover o documento da Iniciativa T20.
+
 		:
 
-		**Brew ID:**  ${props.brew.brewId}`,
+		**ID do Documento:**  ${props.brew.brewId}`,
 
 		// Author delete error
 		'08' : dedent`
-		## Unable to remove user from Homebrewery document.
-		
-		An error occurred while attempting to remove the user from the Homebrewery document author list!
-		
+		## Não foi possível remover o usuário do documento da Iniciativa T20.
+
+		Ocorreu um erro ao tentar remover o usuário da lista de autores do documento da Iniciativa T20!
+
 		:
 
-		**Brew ID:**  ${props.brew.brewId}`,
+		**ID do Documento:**  ${props.brew.brewId}`,
 
 		// Theme load error
 		'09' : dedent`
-		## No Homebrewery theme document could be found.
-		
-		The server could not locate the Homebrewery document. It was likely deleted by
-		its owner.
-		
+		## Nenhum documento de tema da Iniciativa T20 foi encontrado.
+
+		O servidor não conseguiu localizar o documento da Iniciativa T20. Provavelmente foi excluído por
+		seu dono.
+
 		:
 
-		**Requested access:** ${props.brew.accessType}
+		**Acesso solicitado:** ${props.brew.accessType}
 
-		**Brew ID:**  ${props.brew.brewId}`,
+		**ID do Documento:**  ${props.brew.brewId}`,
 
 		// Theme Not Valid
 		'10' : dedent`
-		## The selected theme is not tagged as a theme.
-		
-		The brew selected as a theme exists, but has not been marked for use as a theme with the \`theme:meta\` tag.
-		
-		If the selected brew is your document, you may designate it as a theme by adding the \`theme:meta\` tag.`,
+		## O tema selecionado não está marcado como um tema.
+
+		O documento selecionado como tema existe, mas não foi marcado para uso como tema com a tag \`theme:meta\`.
+
+		Se o documento selecionado é o seu, você pode designá-lo como tema adicionando a tag \`theme:meta\`.`,
 
 		// ID validation error
 		'11' : dedent`
-		## No Homebrewery document could be found.
-		
-		The server could not locate the Homebrewery document. The Brew ID failed the validation check.
-		
+		## Nenhum documento da Iniciativa T20 foi encontrado.
+
+		O servidor não conseguiu localizar o documento da Iniciativa T20. O ID do Documento falhou na verificação de validação.
+
 		:
 
-		**Brew ID:**  ${props.brew.brewId}`,
+		**ID do Documento:**  ${props.brew.brewId}`,
 
 		// Google ID validation error
 		'12' : dedent`
-		## No Google document could be found.
-		
-		The server could not locate the Google document. The Google ID failed the validation check.
-		
+		## Nenhum documento do Google foi encontrado.
+
+		O servidor não conseguiu localizar o documento do Google. O ID do Google falhou na verificação de validação.
+
 		:
 
-		**Brew ID:**  ${props.brew.brewId}`,
+		**ID do Documento:**  ${props.brew.brewId}`,
 
 		// Database Connection Lost
 		'13' : dedent`
-		## Database connection has been lost.
-		
-		The server could not communicate with the database.`,
+		## A conexão com o banco de dados foi perdida.
+
+		O servidor não conseguiu se comunicar com o banco de dados.`,
 
 		//account page when account is not defined
 		'50' : dedent`
-		## You are not signed in
-		
-		You are trying to access the account page, but are not signed in to an account.
-		
-		Please login or signup at our [login page](https://www.naturalcrit.com/login?redirect=https://homebrewery.naturalcrit.com/account).`,
+		## Você não está conectado
+
+		Você está tentando acessar a página da conta, mas não está conectado a nenhuma conta.
+
+		Por favor, entre ou cadastre-se em nossa [página de login](https://www.naturalcrit.com/login?redirect=https://homebrewery.naturalcrit.com/account).`,
 
 		// Brew locked by Administrators error
 		'51' : dedent`
-		## This brew has been locked.
-		
-		Only an author may request that this lock is removed.
-		
+		## Este documento foi bloqueado.
+
+		Apenas um autor pode solicitar que este bloqueio seja removido.
+
 		:
 
-		**Brew ID:**  ${props.brew.brewId}
-		
-		**Brew Title:** ${escape(props.brew.brewTitle)}
-		
-		**Brew Authors:**  ${props.brew.authors?.map((author)=>{return `[${author}](/user/${encodeURIComponent(author)})`;}).join(', ') || 'Unable to list authors'}`,
+		**ID do Documento:**  ${props.brew.brewId}
+
+		**Título do Documento:** ${escape(props.brew.brewTitle)}
+
+		**Autores do Documento:**  ${props.brew.authors?.map((author)=>{return `[${author}](/user/${encodeURIComponent(author)})`;}).join(', ') || 'Não foi possível listar os autores'}`,
 
 		// ####### Admin page error #######
 		'52' : dedent`
-		## Access Denied
-		You need to provide correct administrator credentials to access this page.`,
+		## Acesso Negado
+		Você precisa fornecer as credenciais corretas de administrador para acessar esta página.`,
 
 		// ####### Lock Errors
 
-		'60' : dedent`Lock Error: General`,
+		'60' : dedent`Erro de Bloqueio: Geral`,
 
-		'61' : dedent`Lock Get Error: Unable to get lock count`,
+		'61' : dedent`Erro ao Obter Bloqueio: Não foi possível obter a contagem de bloqueios`,
 
-		'62' : dedent`Lock Set Error: Cannot lock`,
+		'62' : dedent`Erro ao Definir Bloqueio: Não foi possível bloquear`,
 
-		'63' : dedent`Lock Set Error: Brew not found`,
+		'63' : dedent`Erro ao Definir Bloqueio: Documento não encontrado`,
 
-		'64' : dedent`Lock Set Error: Already locked`,
+		'64' : dedent`Erro ao Definir Bloqueio: Já está bloqueado`,
 
-		'65' : dedent`Lock Remove Error: Cannot unlock`,
+		'65' : dedent`Erro ao Remover Bloqueio: Não foi possível desbloquear`,
 
-		'66' : dedent`Lock Remove Error: Brew not found`,
+		'66' : dedent`Erro ao Remover Bloqueio: Documento não encontrado`,
 
-		'67' : dedent`Lock Remove Error: Not locked`,
+		'67' : dedent`Erro ao Remover Bloqueio: Não está bloqueado`,
 
-		'68' : dedent`Lock Get Review Error: Cannot get review requests`,
+		'68' : dedent`Erro ao Obter Revisão de Bloqueio: Não foi possível obter as solicitações de revisão`,
 
-		'69' : dedent`Lock Set Review Error: Cannot set review request`,
+		'69' : dedent`Erro ao Definir Revisão de Bloqueio: Não foi possível definir a solicitação de revisão`,
 
-		'70' : dedent`Lock Set Review Error: Brew not found`,
+		'70' : dedent`Erro ao Definir Revisão de Bloqueio: Documento não encontrado`,
 
-		'71' : dedent`Lock Set Review Error: Review already requested`,
+		'71' : dedent`Erro ao Definir Revisão de Bloqueio: Revisão já solicitada`,
 
-		'72' : dedent`Lock Remove Review Error: Cannot clear review request`,
+		'72' : dedent`Erro ao Remover Revisão de Bloqueio: Não foi possível limpar a solicitação de revisão`,
 
-		'73' : dedent`Lock Remove Review Error: Brew not found`,
+		'73' : dedent`Erro ao Remover Revisão de Bloqueio: Documento não encontrado`,
 
 		// ####### Other Errors
 
-		'90' : dedent` An unexpected error occurred while looking for these brews.  
-            Try again in a few minutes.`,
+		'90' : dedent` Ocorreu um erro inesperado ao procurar por estes documentos.  
+            Tente novamente em alguns minutos.`,
 
-		'91' : dedent` An unexpected error occurred while trying to get the total of brews.`,
+		'91' : dedent` Ocorreu um erro inesperado ao tentar obter o total de documentos.`,
 	};
 };
 

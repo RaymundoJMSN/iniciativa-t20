@@ -144,21 +144,21 @@ const RecentItems = createReactClass({
 
 		const makeItems = (brews)=>{
 			return _.map(brews, (brew, i)=>{
-				return <a className='navItem' href={brew.url} key={`${brew.id}-${i}`} target='_blank' rel='noopener noreferrer' title={brew.title || '[ no title ]'}>
-					<span className='title'>{brew.title || '[ no title ]'}</span>
+				return <a className='navItem' href={brew.url} key={`${brew.id}-${i}`} target='_blank' rel='noopener noreferrer' title={brew.title || '[ sem titulo ]'}>
+					<span className='title'>{brew.title || '[ sem titulo ]'}</span>
 					<span className='time'>{Moment(brew.ts).fromNow()}</span>
-					<div className='clear' title='Remove from Recents' onClick={(e)=>{this.removeItem(`${brew.url}`, e);}}><i className='fas fa-times'></i></div>
+					<div className='clear' title='Remover dos Recentes' onClick={(e)=>{this.removeItem(`${brew.url}`, e);}}><i className='fas fa-times'></i></div>
 				</a>;
 			});
 		};
 
 		return <>
 			{(this.props.showEdit && this.props.showView) ?
-				<Nav.item className='header'>edited</Nav.item> : null }
+				<Nav.item className='header'>editados</Nav.item> : null }
 			{this.props.showEdit ?
 				makeItems(this.state.edit) : null }
 			{(this.props.showEdit && this.props.showView) ?
-				<Nav.item className='header'>viewed</Nav.item>	: null }
+				<Nav.item className='header'>visualizados</Nav.item>	: null }
 			{this.props.showView ?
 				makeItems(this.state.view) : null }
 		</>;
@@ -181,7 +181,7 @@ export default {
 		return <RecentItems
 			brew={props.brew}
 			storageKey={props.storageKey}
-			text='recently edited'
+			text='editados recentemente'
 			showEdit={true}
 		/>;
 	},
@@ -190,7 +190,7 @@ export default {
 		return <RecentItems
 			brew={props.brew}
 			storageKey={props.storageKey}
-			text='recently viewed'
+			text='visualizados recentemente'
 			showView={true}
 		/>;
 	},
@@ -199,7 +199,7 @@ export default {
 		return <RecentItems
 			brew={props.brew}
 			storageKey={props.storageKey}
-			text='recent brews'
+			text='documentos recentes'
 			showEdit={true}
 			showView={true}
 		/>;

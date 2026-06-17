@@ -23,7 +23,7 @@ const NotificationPopup = ()=>{
 			pickActiveNotifications(res.body || []);
 		} catch (err) {
 			console.log(err);
-			setError(`Error looking up notifications: ${err?.response?.body?.message || err.message}`);
+			setError(`Erro ao buscar notificações: ${err?.response?.body?.message || err.message}`);
 		}
 	};
 
@@ -53,8 +53,8 @@ const NotificationPopup = ()=>{
 	return <Dialog className='notificationPopup' dismisskeys={dissmissKeyList} closeText={DISMISS_BUTTON} >
 		<div className='header'>
 			<i className='fas fa-info-circle info'></i>
-			<h3>Notice</h3>
-			<small>This website is always improving and we are still adding new features and squashing bugs. Keep the following in mind:</small>
+			<h3>Aviso</h3>
+			<small>Este site está sempre evoluindo e ainda estamos adicionando novos recursos e corrigindo bugs. Tenha em mente o seguinte:</small>
 		</div>
 		<ul>
 			{renderNotificationsList()}

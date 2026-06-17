@@ -21,11 +21,11 @@ const BrewItem = ({
 
 	const deleteBrew = useCallback(()=>{
 		if(brew.authors.length <= 1) {
-			if(!window.confirm('Are you sure you want to delete this brew? Because you are the only owner of this brew, the document will be deleted permanently.')) return;
-			if(!window.confirm('Are you REALLY sure? You will not be able to recover the document.')) return;
+			if(!window.confirm('Tem certeza de que deseja excluir este documento? Como voce e o unico dono deste documento, ele sera excluido permanentemente.')) return;
+			if(!window.confirm('Tem MESMO certeza? Voce nao podera recuperar o documento.')) return;
 		} else {
-			if(!window.confirm('Are you sure you want to remove this brew from your collection? This will remove you as an editor, but other owners will still be able to access the document.')) return;
-			if(!window.confirm('Are you REALLY sure? You will lose editor access to this document.')) return;
+			if(!window.confirm('Tem certeza de que deseja remover este documento da sua colecao? Isso ira remover voce como editor, mas os outros donos ainda poderao acessar o documento.')) return;
+			if(!window.confirm('Tem MESMO certeza? Voce perdera o acesso de editor a este documento.')) return;
 		}
 
 		request.delete(`/api/${brew.googleId ?? ''}${brew.editId}`).send().end((err, res)=>{
@@ -40,7 +40,7 @@ const BrewItem = ({
 
 		return (
 			<a className='deleteLink' onClick={deleteBrew}>
-				<i className='fas fa-trash-alt' title='Delete' />
+				<i className='fas fa-trash-alt' title='Excluir' />
 			</a>
 		);
 	};
@@ -53,7 +53,7 @@ const BrewItem = ({
 
 		return (
 			<a className='editLink' href={`/edit/${editLink}`} target='_blank' rel='noopener noreferrer'>
-				<i className='fas fa-pencil-alt' title='Edit' />
+				<i className='fas fa-pencil-alt' title='Editar' />
 			</a>
 		);
 	};
@@ -68,7 +68,7 @@ const BrewItem = ({
 
 		return (
 			<a className='shareLink' href={`/share/${shareLink}`} target='_blank' rel='noopener noreferrer'>
-				<i className='fas fa-share-alt' title='Share' />
+				<i className='fas fa-share-alt' title='Compartilhar' />
 			</a>
 		);
 	};
@@ -83,7 +83,7 @@ const BrewItem = ({
 
 		return (
 			<a className='downloadLink' href={`/download/${shareLink}`}>
-				<i className='fas fa-download' title='Download' />
+				<i className='fas fa-download' title='Baixar' />
 			</a>
 		);
 	};
@@ -92,7 +92,7 @@ const BrewItem = ({
 		if(!renderStorage) return null;
 		if(brew.googleId) {
 			return (
-				<span title={brew.webViewLink ? 'Your Google Drive Storage' : 'Another User\'s Google Drive Storage'}>
+				<span title={brew.webViewLink ? 'Seu armazenamento no Google Drive' : 'Armazenamento no Google Drive de outro usuario'}>
 					<a href={brew.webViewLink} target='_blank'>
 						<img className='googleDriveIcon' src={googleDriveIcon} alt='googleDriveIcon' />
 					</a>
@@ -101,7 +101,7 @@ const BrewItem = ({
 		}
 
 		return (
-			<span title='Homebrewery Storage'>
+			<span title='Armazenamento da Iniciativa T20'>
 				<img className='homebreweryIcon' src={homebreweryIcon} alt='homebreweryIcon' />
 			</span>
 		);
@@ -134,12 +134,12 @@ const BrewItem = ({
 						})}
 					</div>
 				) : null}
-				<span title={`Authors:\n${brew.authors?.join('\n')}`}>
+				<span title={`Autores:\n${brew.authors?.join('\n')}`}>
 					<i className='fas fa-user' />{' '}
 					{brew.authors?.map((author, index)=>(
 						<React.Fragment key={index}>
 							{author === 'hidden' ? (
-								<span title="Username contained an email address; hidden to protect user's privacy">
+								<span title='O nome de usuario continha um endereco de email; ocultado para proteger a privacidade do usuario'>
 									{author}
 								</span>
 							) : (<a href={`/user/${encodeURIComponent(author)}`}>{author}</a>)}
@@ -148,17 +148,17 @@ const BrewItem = ({
 					))}
 				</span>
 				<br />
-				<span title={`Last viewed: ${moment(brew.lastViewed).local().format(dateFormatString)}`}>
+				<span title={`Ultima visualizacao: ${moment(brew.lastViewed).local().format(dateFormatString)}`}>
 					<i className='fas fa-eye' /> {brew.views}
 				</span>
 				{brew.pageCount && (
-					<span title={`Page count: ${brew.pageCount}`}>
+					<span title={`Numero de paginas: ${brew.pageCount}`}>
 						<i className='far fa-file' /> {brew.pageCount}
 					</span>
 				)}
 				<span
-					title={dedent` Created: ${moment(brew.createdAt).local().format(dateFormatString)}
-                        Last updated: ${moment(brew.updatedAt).local().format(dateFormatString)}`}
+					title={dedent` Criado: ${moment(brew.createdAt).local().format(dateFormatString)}
+                        Ultima atualizacao: ${moment(brew.updatedAt).local().format(dateFormatString)}`}
 				>
 					<i className='fas fa-sync-alt' /> {moment(brew.updatedAt).fromNow()}
 				</span>

@@ -50,7 +50,7 @@ pre {
 }
 
 .page h3:before {
-	content:'Q.';
+	content:'P.';
 	position:absolute;
 	font-size:2em;
 	margin-left:-1.2em;	
@@ -61,74 +61,58 @@ pre {
 }
 ```
 
-# FAQ
-{{wide Updated Apr. 15, 2023}}
+# Perguntas Frequentes
+{{wide Atualizado em 15 de abril de 2023}}
 
 
-### The site is down for me! Anyone else?
+### Existe uma forma de restaurar uma versão anterior do meu documento?
 
-You can check the site status here: [Everyone or Just Me](https://downforeveryoneorjustme.com/homebrewery.naturalcrit.com)
-
-### Why am I getting an error when trying to save, and my account is linked to Google?
-
-A sign-in with Google only lasts a year until the authentication expires.  You must go [here](https://www.naturalcrit.com/login), click the *Log-out* button, and then sign back in using your Google account.
-
-### I lost my password, how do I reset it?  How do I change my password?
-
-Homebrewery is specifically designed to not hold personal information as a measure to protect both users and admin, and does not require an email address.  Thus it would be difficult to send a new password to a user.  Reach out to the moderators on [the subreddit](https://www.reddit.com/r/homebrewery) with your Homebrewery username.  
-
-If you have linked your account with a Google account, you would change your password within Google.
-
-### Is there a way to restore a previous version of my brew?
-
-In your brew, there is an icon, :fas_clock_rotate_left:, that button opens up a menu with versions of your brew, stored in order from newer to older, up to a week old. Because of the amount of duplicates this function creates, this information is stored in **your browser**, so if you were to uninstall it or clear your cookies and site data, or change computers, the info will not be there.
-
-Also, we do have daily backups of our database that we keep for 8 days, and you can contact the moderators on [the subreddit](https://www.reddit.com/r/homebrewery) with your Homebrewery username, the name of the lost brew, and the last known time it was working properly. We can manually look through our backups and restore it if it exists.
+No seu documento existe um ícone, :fas_clock_rotate_left:, que abre um menu com as versões do seu documento, guardadas da mais nova para a mais antiga, com até uma semana de idade. Por causa da quantidade de duplicatas que essa função cria, essas informações ficam guardadas **no seu navegador**. Então, se você desinstalá-lo, limpar seus cookies e dados do site, ou trocar de computador, as informações não estarão mais lá.
 
 
-### I worked on a brew for X hours, and suddenly all the text disappeared!
+### Trabalhei num documento por X horas e, de repente, todo o texto sumiu!
 
-This usually happens if you accidentally drag-select all of your text and then start typing which overwrites the selection. Do not panic, and do not refresh the page or reload your brew quite yet as it is probably auto-saved in this state already. Simply press CTRL+Z as many times as needed to undo your last few changes and you will be back to where you were, then make sure to save your brew in the "good" state.
+Isso normalmente acontece quando você seleciona todo o texto sem querer (arrastando o cursor) e começa a digitar, o que sobrescreve a seleção. Não entre em pânico e não atualize a página nem recarregue o documento ainda, pois provavelmente ele já foi salvo automaticamente nesse estado. Basta apertar CTRL+Z quantas vezes forem necessárias para desfazer suas últimas alterações e você voltará para onde estava. Depois, lembre-se de salvar o documento no estado "bom".
 
-You can also load a history version old enough to have all the text, using the :fas_clock_rotate_left: history versions button.
+Você também pode carregar uma versão do histórico antiga o bastante para ter todo o texto, usando o botão de versões do histórico :fas_clock_rotate_left:.
 
 \column
 
-### Why is only Chrome supported?
+### Por que só o Chrome é suportado?
 
-Different browsers have differing abilities to handle web styling (or "CSS").  For example, Firefox is not currently capable of handling column breaks well but Chrome has no problem.  Also, each browser has slight differences in how they display pages which can make it a nightmare to compensate for.  These capabilities change over time and we are hopeful that each browser update bridges these gaps and adds more features; until then, we will develop with one browser in mind.
+Navegadores diferentes têm capacidades diferentes de lidar com a estilização da web (ou "CSS"). Por exemplo, o Firefox atualmente não consegue lidar bem com quebras de coluna, mas o Chrome não tem problema algum. Além disso, cada navegador tem pequenas diferenças na forma de exibir as páginas, o que pode ser um pesadelo de compensar. Essas capacidades mudam com o tempo e temos esperança de que cada atualização dos navegadores preencha essas lacunas e adicione mais recursos. Até lá, vamos desenvolver pensando em um único navegador.
 
-### Both my friend and myself are using Chrome, but the brews still look different.  Why?
+### Tanto eu quanto meu amigo usamos o Chrome, mas os documentos ainda ficam diferentes. Por quê?
 
-A pixel can be rendered differently depending on the browser, operating system, computer, or screen.  Unless you and your friend have exactly the same setup, it is likely your online brew will have very tiny differences.  However, sometimes a few pixels is all it takes to create *big* differences....for example, an extra pixel can cause a whole line of text or even a monster stat block to run out of space in it's current column and be pushed to the next column or even off the page.  
+Um pixel pode ser renderizado de forma diferente dependendo do navegador, sistema operacional, computador ou tela. A menos que você e seu amigo tenham exatamente a mesma configuração, é provável que o seu documento online tenha diferenças bem pequenas. Porém, às vezes alguns pixels são tudo o que basta para criar diferenças *grandes*... por exemplo, um pixel a mais pode fazer uma linha de texto inteira, ou até uma ficha de ameaça, ficar sem espaço na coluna atual e ser empurrada para a próxima coluna ou até para fora da página.
 
-The best way to avoid this is to leave space at the end of a column equal to one or two lines of text.  Or, create a PDF from your document for sharing--- PDF's are designed to be rendered the same on all devices.
+A melhor forma de evitar isso é deixar um espaço no fim da coluna equivalente a uma ou duas linhas de texto. Ou crie um PDF do seu documento para compartilhar — os PDFs são feitos para serem renderizados da mesma forma em todos os dispositivos.
 
-### Why do I need to manually create a new page?  Why doesn't text flow between pages?
+### Por que preciso criar uma nova página manualmente? Por que o texto não flui entre as páginas?
 
-A Homebrewery document is at its core an HTML & CSS document, and currently limited by the specs of those technologies.  It is currently not possible to flow content from inside one box ("page") to the inside of another box.  It seems likely that someday CSS will add this capability, and if/when that happens, Homebrewery will adopt it as soon as possible.
+Um documento da Iniciativa T20 é, em sua essência, um documento HTML e CSS, e atualmente é limitado pelas especificações dessas tecnologias. No momento não é possível fazer o conteúdo fluir de dentro de uma caixa ("página") para dentro de outra caixa. Parece provável que um dia o CSS adicione essa capacidade e, se/quando isso acontecer, a Iniciativa T20 vai adotá-la o mais rápido possível.
 
-### Where do I get images?
-The Homebrewery does not provide images for use besides some page elements and example images for snippets.  You will need to find your own images for use and be sure you are following the appropriate license requirements.  
+### Onde consigo imagens?
+A Iniciativa T20 não fornece imagens para uso além de alguns elementos de página e imagens de exemplo para os trechos. Você precisará encontrar suas próprias imagens e garantir que está seguindo os requisitos de licença adequados.
 
-Once you have an image you would like to use, it is recommended to host it somewhere that won't disappear; commonly, people host their images on [Imgur](https://www.imgur.com).  Create an account and upload your images there, and use the *Direct Link* that is shown when you click into the image from the gallery in your Homebrewery document.
+Depois de ter uma imagem que queira usar, recomenda-se hospedá-la em algum lugar que não vá desaparecer; é comum as pessoas hospedarem suas imagens no [Imgur](https://www.imgur.com). Crie uma conta e envie suas imagens para lá, e use o *Link Direto* que aparece quando você clica na imagem dentro da galeria, no seu documento da Iniciativa T20.
 
 \page
 
-### A particular font does not work for my language, what do I do?
-The fonts used were originally created for use with the English language, though revisions since then have added more support for other languages. They are still not complete sets and may be missing a glyph/character you need. Unfortunately, the volunteer group as it stands at the time of this writing does not have a font guru, so it would be difficult to add more glyphs (especially complicated glyphs). Let us know which glyph is missing on the subreddit, but you may need to search [Google Fonts](https://fonts.google.com) for an alternative font if you need something fast.
+### Uma fonte específica não funciona no meu idioma. O que faço?
+As fontes usadas podem não conter um glifo/caractere de que você precisa. Infelizmente, pode ser difícil adicionar mais glifos (especialmente glifos complicados). Se precisar de algo rápido, talvez seja necessário procurar uma fonte alternativa no [Google Fonts](https://fonts.google.com).
 
-### I have white borders on the bottom/sides of the print preview.
+### Tenho bordas brancas na parte de baixo/nas laterais da pré-visualização de impressão.
 
-The Homebrewery paper size and your print paper size do not match.
+O tamanho de papel da Iniciativa T20 e o tamanho de papel da sua impressão não combinam.
 
-The Homebrewery defaults to creating US Letter page sizes.  If you are printing with A4 size paper, you must add the "A4 Page Size" snippet.  In the "Print" dialog be sure your Paper Size matches the page size in Homebrewery.
+Verifique se, na caixa de diálogo "Imprimir", o Tamanho do Papel corresponde ao tamanho de página configurado na Iniciativa T20.
 
 
-### Typing `#### Adhesion` in the text editor doesn't show the header at all in the completed page?
+### Digitar `#### Aderência` no editor de texto não mostra o cabeçalho na página finalizada?
 
-Your ad-blocking software is mistakenly assuming your text to be an ad. We recommend whitelisting homebrewery.naturalcrit.com in your ad-blocking software, as we have no ads.
+Seu software de bloqueio de anúncios está confundindo o seu texto com um anúncio. Recomendamos adicionar a Iniciativa T20 à lista de permissões do seu bloqueador de anúncios, já que não temos nenhum anúncio.
 
-### My username appears as _hidden_ when checking my brews in the Vault, why is that?
+### Meu nome de usuário aparece como _oculto_ quando vejo meus documentos no Cofre. Por quê?
 
-Your username is most likely your e-mail adress, and our code is picking that up and protecting your identity. This will remain as is, but you can ask for a name change by contacting the moderators on [the subreddit](https://www.reddit.com/r/homebrewery) with your Homebrewery username, and your desired new name. You will also be asked to provide details about some of your unpublished brews, to verify your identity. No information will be leaked or shared.
+Seu nome de usuário provavelmente é o seu endereço de e-mail, e nosso código está identificando isso e protegendo a sua identidade. Isso permanecerá assim, mas nenhuma informação será vazada ou compartilhada.
