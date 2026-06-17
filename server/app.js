@@ -125,9 +125,9 @@ export default async function createApp(vite) {
 	String.prototype.replaceAll = function(s, r){return this.split(s).join(r);};
 
 	const defaultMetaTags = {
-		site_name   : 'The Homebrewery - Make your Homebrew content look legit!',
-		title       : 'The Homebrewery',
-		description : 'A NaturalCrit Tool for creating authentic Homebrews using Markdown.',
+		site_name   : 'Iniciativa T20 — materiais de Tormenta 20 com a cara dos livros',
+		title       : 'Iniciativa T20',
+		description : 'Ferramenta para criar materiais de Tormenta 20 usando Markdown.',
 		image       : `${config.get('publicUrl')}/thumbnail.png`,
 		type        : 'website'
 	};
