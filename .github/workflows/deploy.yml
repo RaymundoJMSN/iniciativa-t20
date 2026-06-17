@@ -1,7 +1,8 @@
 name: Deploy to devilsworks
 
-# Deploy automático: a cada push em master, conecta via SSH no servidor
-# Oracle (ubuntu@devilsworks), atualiza o código, rebuilda e reinicia o app.
+# Deploy automático seguro: primeiro BUILDA no runner (portão). Se o build
+# falhar (ex.: erro de LESS no tema), o job para e o SERVIDOR NÃO É TOCADO —
+# produção continua no último estado bom. Só deploya se o build passar.
 
 on:
   push:
@@ -16,7 +17,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy via SSH
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Build gate (compila tudo, incl. temas/LESS)
+        run: npm ci --no-audit --no-fund
+
+      - name: Deploy via SSH (só roda se o build passou)
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.SSH_HOST }}
