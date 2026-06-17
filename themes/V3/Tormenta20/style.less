@@ -46,7 +46,8 @@
 	line-height      : 1.3;
 	color            : @t20-texto;
 	background-color : var(--HB_Color_Background);
-	background-image : @t20-background;
+	// imagem de fundo a ~75% (camada off-white de 25% por cima, via gradiente)
+	background-image : linear-gradient(rgba(246, 246, 246, 0.25), rgba(246, 246, 246, 0.25)), @t20-background;
 	background-size  : cover;
 }
 // margens espelhadas: páginas pares invertem interna/externa
@@ -144,7 +145,7 @@
 		padding       : 0.4cm 0.5cm;
 		color         : @t20-texto-claro;
 		background    : @t20-vermelho;
-		border-radius : 2px;
+		border: 16px solid transparent; border-image: @t20-box-med 55 fill / 16px / 0 stretch; /* moldura serrilhada do kit; ajustar slice (55) na QA visual */
 		break-inside  : avoid;
 		h1, h2, h3, h4, h5 {
 			font-family : 'SourceSansPro';
