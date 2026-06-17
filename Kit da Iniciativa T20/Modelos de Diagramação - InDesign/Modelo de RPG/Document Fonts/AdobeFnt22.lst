@@ -1,0 +1,129 @@
+%!Adobe-FontList 1.22
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:IowanOldStyle-Roman
+FamilyName:Iowan Old Style
+StyleName:Roman
+FullName:Iowan Old Style Roman
+MenuName:Iowan Old Style
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\guilh\Desktop\Modelo de RPG\Document fonts\Iowan Old Style.ttc
+TTCOffset:52
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:3356712
+FileModTime:1583163043
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Iowan Old Style Roman
+NameArray:0,Win,1,Iowan Old Style
+NameArray:0,Win,16,Iowan Old Style
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+FullName:Minion Pro
+MenuName:Minion Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\guilh\Desktop\Modelo de RPG\Document fonts\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:217280
+FileModTime:1329317626
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SourceSansPro-Bold
+FamilyName:Source Sans Pro
+StyleName:Bold
+FullName:Source Sans Pro Bold
+MenuName:Source Sans Pro
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\guilh\Desktop\Modelo de RPG\Document fonts\SourceSansPro-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:235128
+FileModTime:1593707971
+WeightClass:700
+WidthClass:5
+AngleClass:0
+DesignSize:100
+NameArray:0,Mac,4,Source Sans Pro Bold
+NameArray:0,Win,1,Source Sans Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:SourceSansPro-Regular
+FamilyName:Source Sans Pro
+StyleName:Regular
+FullName:Source Sans Pro
+MenuName:Source Sans Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\guilh\Desktop\Modelo de RPG\Document fonts\SourceSansPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:229588
+FileModTime:1593707971
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:100
+NameArray:0,Mac,4,Source Sans Pro
+NameArray:0,Win,1,Source Sans Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Tormenta20-Regular
+FamilyName:Tormenta20
+StyleName:Regular
+FullName:Tormenta20 Regular
+MenuName:Tormenta20
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\guilh\Desktop\Modelo de RPG\Document fonts\Tormenta20x.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:27316
+FileModTime:1583163043
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Tormenta20 Regular
+NameArray:0,Win,1,Tormenta20
+%EndFont
+
