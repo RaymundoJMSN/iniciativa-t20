@@ -93,7 +93,7 @@ const MetadataEditor = createReactClass({
 		if(e.target.checked){
 			this.props.metadata.renderer = renderer;
 			if(renderer == 'legacy')
-				this.props.metadata.theme = '5ePHB';
+				this.props.metadata.theme = 'Tormenta20';
 		}
 		this.props.onChange(this.props.metadata, 'renderer');
 	},

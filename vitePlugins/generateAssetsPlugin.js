@@ -20,7 +20,7 @@ export function generateAssetsPlugin(isDev = false) {
 
 			// Compile Legacy themes
 			const themes = { Legacy: {}, V3: {} };
-			const legacyDirs = fs.readdirSync('./themes/Legacy');
+			const legacyDirs = fs.existsSync('./themes/Legacy') ? fs.readdirSync('./themes/Legacy') : [];
 			for (const dir of legacyDirs) {
 				const themeData = JSON.parse(fs.readFileSync(`./themes/Legacy/${dir}/settings.json`, 'utf-8'));
 				themeData.path = dir;

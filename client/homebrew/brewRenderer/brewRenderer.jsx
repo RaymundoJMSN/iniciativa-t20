@@ -99,7 +99,7 @@ const BrewRenderer = (props)=>{
 		text                       : '',
 		style                      : '',
 		renderer                   : 'legacy',
-		theme                      : '5ePHB',
+		theme                      : 'Tormenta20',
 		lang                       : '',
 		errors                     : [],
 		currentEditorCursorPageNum : 1,
