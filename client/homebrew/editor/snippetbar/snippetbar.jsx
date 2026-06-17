@@ -9,18 +9,12 @@ import cx from 'classnames';
 import { loadHistory } from '../../utils/versionHistory.js';
 import { brewSnippetsToJSON } from '@shared/helpers.js';
 
-import Legacy5ePHB from '@themes/Legacy/5ePHB/snippets.js';
-import V3_5ePHB   from '@themes/V3/5ePHB/snippets.js';
-import V3_5eDMG   from '@themes/V3/5eDMG/snippets.js';
-import V3_Journal from '@themes/V3/Journal/snippets.js';
-import V3_Blank  from '@themes/V3/Blank/snippets.js';
+import V3_Blank      from '@themes/V3/Blank/snippets.js';
+import V3_Tormenta20 from '@themes/V3/Tormenta20/snippets.js';
 
 const ThemeSnippets = {
-	Legacy_5ePHB : Legacy5ePHB,
-	V3_5ePHB     : V3_5ePHB,
-	V3_5eDMG     : V3_5eDMG,
-	V3_Journal   : V3_Journal,
-	V3_Blank     : V3_Blank,
+	V3_Blank      : V3_Blank,
+	V3_Tormenta20 : V3_Tormenta20,
 };
 
 import defaultCM5Theme from '@themes/codeMirror/default.js';
