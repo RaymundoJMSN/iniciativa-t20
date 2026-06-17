@@ -45,6 +45,8 @@ jobs:
             echo "== atualizando código =="
             git fetch --all --quiet
             git reset --hard origin/master
+            echo "== limpa build/ (evita artefatos de temas/assets removidos) =="
+            rm -rf build
             echo "== deps + build (postinstall) =="
             npm install --no-audit --no-fund
             echo "== reiniciando app =="
