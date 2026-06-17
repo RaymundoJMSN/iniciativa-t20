@@ -74,6 +74,51 @@ export default [{
 				`,
 		},
 		{
+			name : 'Classe',
+			icon : 'fas fa-shield-halved',
+			gen  : dedent`
+				{{classe
+				# Nome da Classe
+				*Frase de conceito que resume a classe.*
+
+				### Características de Classe
+				**Pontos de Vida** começa com X + Constituição; ganha Y + Con por nível.
+				**Pontos de Mana** Z por nível.
+				**Perícias** treinado em duas perícias à escolha (+ Inteligência).
+				**Proficiências** armas simples; armaduras leves.
+
+				##### Tabela da Classe
+				| Nível | Habilidades de Classe | PM |
+				|:-----:|:----------------------|:--:|
+				| 1º | Habilidade inicial | — |
+				| 2º | Poder de classe | 1 |
+				| 3º | Habilidade do 3º nível | 2 |
+
+				### Habilidades de Classe
+				##### Nome da Habilidade
+				Descrição da habilidade de classe e quando se aplica.
+				}}
+
+				`,
+		},
+		{
+			name : 'Raça',
+			icon : 'fas fa-people-group',
+			gen  : dedent`
+				{{raca
+				## Nome da Raça
+				*Texto de apresentação da raça, com seu tom e cultura.*
+
+				**Atributos** +2 em um atributo, +1 em outro, –1 em outro.
+				**Tamanho** Médio. **Deslocamento** 9m.
+
+				##### Nome do Traço Racial
+				Descrição do traço racial concedido pela raça.
+				}}
+
+				`,
+		},
+		{
 			name : 'Magia',
 			icon : 'fas fa-hand-sparkles',
 			gen  : dedent`
@@ -97,7 +142,38 @@ export default [{
 			gen  : dedent`
 				{{poder
 				##### Nome do Poder
+				*Pré-requisitos: atributo ou treinamento exigido.*
 				Descrição do poder ou habilidade. Indique se é passivo ou a ação de ativação.
+				}}
+
+				`,
+		},
+		{
+			name : 'Item Mágico',
+			icon : 'fas fa-wand-magic-sparkles',
+			gen  : dedent`
+				{{item
+				**Nome do Item.**
+				{{preco Item mágico · CD de fabricação 20 · T$ 1.000}}
+				Descrição do item mágico, sua aparência e os efeitos que concede a quem o usa.
+				}}
+
+				`,
+		},
+		{
+			name : 'Divindade',
+			icon : 'fas fa-place-of-worship',
+			gen  : dedent`
+				{{divindade
+				## Nome do Deus
+				*Epíteto ou domínio da divindade.*
+
+				**Crenças e Objetivos** o que a divindade prega e busca.
+				**Símbolo Sagrado** descrição do símbolo.
+				**Energia** Positiva ou Negativa.
+				**Devotos** quem segue esta divindade.
+				**Poderes Concedidos** lista de poderes concedidos.
+				**Obrigações & Restrições** deveres e proibições dos devotos.
 				}}
 
 				`,

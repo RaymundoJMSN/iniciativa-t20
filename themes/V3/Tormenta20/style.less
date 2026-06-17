@@ -323,3 +323,27 @@
 		}
 	}
 }
+
+// *****************************
+// *   ENTRADAS DE REGRAS (classe, raça, divindade, item mágico)
+// *   Usam cabeçalhos (h1/h2/h3 vinho) + rótulos **negrito** já existentes
+// *****************************/
+.page {
+	// item mágico: nome em vinho + linha de preço/tipo
+	.item {
+		margin       : 0.15cm 0;
+		break-inside : avoid;
+	}
+	.item > strong:first-child,
+	.item p:first-child > strong:first-child { color : @t20-vinho; }
+	.preco {
+		display    : block;
+		font-style : italic;
+		font-size  : 8pt;
+		color      : @t20-tabela;
+	}
+	// nome de classe/raça em fonte display Tormenta20
+	.classe > h1:first-child,
+	.raca > h2:first-child,
+	.divindade > h2:first-child { font-family : 'Tormenta20'; }
+}
