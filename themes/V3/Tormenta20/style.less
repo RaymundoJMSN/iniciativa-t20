@@ -4,6 +4,110 @@
 @import (less) './themes/fonts/Tormenta20/fonts.less';
 @import (less) './themes/assets/tormenta20/tormenta20-assets.less';
 
+// *****************************
+// *   PALETA (estudo §3)
+// *****************************/
 :root {
-	--HB_Color_Background : #f6f6f6; // BG geral T20
+	--HB_Color_Background      : #f6f6f6; // BG geral
+	--HB_Color_HeaderText      : #3f0f12; // vinho — títulos
+	--HB_Color_HorizontalRule  : #b02b2e; // vermelho
+	--HB_Color_TableTitle      : #6f3c27; // marrom — títulos de tabela/rodapé
+	--HB_Color_CaptionText     : #6f3c27;
+	--HB_Color_Footnotes       : #f0dc82; // dourado — nº de página
+	--TOC                      : 'include';
+}
+
+@t20-vinho      : #3f0f12;
+@t20-tabela     : #6f3c27;
+@t20-vermelho   : #b02b2e;
+@t20-dourado    : #f0dc82;
+@t20-bege       : #e8d1b5;
+@t20-cinza      : #727175;
+@t20-zebra-a    : #ddd9d5;
+@t20-zebra-b    : #f6f6f6;
+@t20-texto      : #000000;
+@t20-texto-claro: #ffffff;
+
+// *****************************
+// *   PÁGINA (Modelo RPG: 205×275mm, 2 colunas, margens espelhadas)
+// *****************************/
+.useColumns(@multiplier : 1, @fillMode: auto) {
+	column-count : 2;
+	column-fill  : @fillMode;
+	column-gap   : 0.9cm;
+}
+.page {
+	.useColumns();
+	width            : 205mm;
+	height           : 275mm;
+	padding          : 20mm 18mm 24mm 25mm; // topo · externa(dir) · base · interna(esq) — páginas ímpares
+	font-family      : 'SourceSansPro';
+	font-size        : 9pt;
+	line-height      : 1.3;
+	color            : @t20-texto;
+	background-color : var(--HB_Color_Background);
+	background-image : @t20-background;
+	background-size  : cover;
+}
+// margens espelhadas: páginas pares invertem interna/externa
+.page:nth-of-type(even) {
+	padding : 20mm 25mm 24mm 18mm;
+}
+
+// *****************************
+// *   CORPO
+// *****************************/
+.page {
+	p {
+		line-height : 1.3;
+		& + p { text-indent : 1em; } // 2º parágrafo em diante recua
+	}
+	// 1º parágrafo de seção (logo após título) sem recuo
+	h1 + p, h2 + p, h3 + p, h4 + p { text-indent : 0; }
+	ul, ol {
+		padding-left  : 1.2em;
+		margin-bottom : 0.6em;
+		line-height   : 1.3;
+	}
+	em { font-style : italic; }
+	strong { font-weight : bold; }
+	.vermelho { color : @t20-vermelho; } // texto de destaque vermelho
+}
+
+// *****************************
+// *   TÍTULOS
+// *****************************/
+.page {
+	h1, h2, h3, h4, h5 { color : var(--HB_Color_HeaderText); }
+	// h1 = título de capítulo (Tormenta20 display, largura total)
+	h1 {
+		column-span   : all;
+		font-family   : 'Tormenta20';
+		font-size     : 20pt;
+		line-height   : 1.1;
+		margin-bottom : 0.2cm;
+	}
+	// h2 = título de seção (Iowan small-caps)
+	h2 {
+		font-family    : 'IowanOldStyle';
+		font-weight    : bold;
+		font-variant   : small-caps;
+		font-size      : 14pt;
+		letter-spacing : 0.02em;
+	}
+	// h3 = intertítulo (Iowan small-caps + faixa decorativa embaixo)
+	h3 {
+		font-family    : 'IowanOldStyle';
+		font-weight    : bold;
+		font-variant   : small-caps;
+		font-size      : 11pt;
+		padding-bottom : 0.12cm;
+		background     : @t20-faixa-intertitulo bottom left / 100% auto no-repeat;
+	}
+	h4, h5 {
+		font-family  : 'IowanOldStyle';
+		font-weight  : bold;
+		font-variant : small-caps;
+		font-size    : 9.5pt;
+	}
 }
