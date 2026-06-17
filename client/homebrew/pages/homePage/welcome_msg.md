@@ -1,176 +1,129 @@
 ```css
-.page #example + table td {
-	border:1px dashed #00000030;
-}
 .page {
 	padding-bottom : 1.1cm;
 }
 ```
 
-# The Homebrewery *V3*
-Welcome traveler from an antique land. Please sit and tell us of what you have seen. The unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the vexing vocations and surprising skills you have seen.
+# A Iniciativa T20 *V3*
+Bem-vindo, viajante de Arton. Sente-se e conte-nos o que viu: as ameaças que espreitam sob a Tempestade, os artefatos perdidos cujos mistérios ainda aguardam, os poderes e perícias que você dominou ao longo da jornada.
 
-### Homebrew D&D made easy
-The Homebrewery makes the creation and sharing of authentic looking Fifth-Edition homebrews easy. It uses [Markdown](https://help.github.com/articles/markdown-basics/) with a little CSS magic to make your brews come to life.
+### Material de Tormenta 20 do jeito fácil
+A **Iniciativa T20** facilita criar e compartilhar materiais com a cara dos livros de Tormenta 20. Você escreve em [Markdown](https://help.github.com/articles/markdown-basics/) e um toque de CSS dá vida às suas obras.
 
-**Try it!** Simply edit the text on the left and watch it *update live* on the right. Note that not every button is visible on this demo page. Click New {{fas,fa-plus-square}} in the navbar above to start brewing with all the features!
+**Experimente!** Edite o texto à esquerda e veja a *atualização ao vivo* à direita. Nem todo botão aparece nesta página de demonstração — clique em **Novo** {{fas,fa-plus-square}} na barra acima para começar com todos os recursos!
 
-### Editing and Sharing
-When you create a new homebrew document ("brew"), your document will be given a *edit link* and a *share link*.
+### Editando e compartilhando
+Ao criar um novo documento, ele recebe um *link de edição* e um *link de compartilhamento*.
 
-The *edit link* is where you write your brew. If you edit a brew while logged in, you are added as one of the brew's authors, and no one else can edit that brew until you add them as a new author via the {{fa,fa-info-circle}} **Properties** tab. Brews without any author can still be edited by anyone with the *edit link*, so be careful about who you share it with if you prefer to work without an account.
+O *link de edição* é onde você escreve. Se editar logado, você é adicionado como autor da obra, e ninguém mais pode editá-la até que você adicione essa pessoa como autor pela aba {{fa,fa-info-circle}} **Propriedades**. Obras sem nenhum autor ainda podem ser editadas por qualquer um com o *link de edição* — cuidado com quem compartilha.
 
-Anyone with the *share url* will be able to access a read-only version of your homebrew.
+Qualquer pessoa com o *link de compartilhamento* acessa uma versão somente-leitura da sua obra.
 
 {{note
-##### PDF Creation
-PDF Printing works best in Google Chrome. If you are having quality/consistency issues, try using Chrome to print instead.
+##### Gerando PDF
+A impressão em PDF funciona melhor no Google Chrome. Se tiver problemas de qualidade/consistência, prefira o Chrome.
 
-After clicking the "Print" item in the navbar a new page will open and a print dialog will pop-up.
-* Set the **Destination** to "Save as PDF"
-* Set **Paper Size** to "Letter"
-* If you are printing on A4 paper, make sure to have the **PRINT → {{far,fa-file}} A4 Pagesize** snippet in your brew
-* In **Options** make sure "Background Images" is selected.
-* Hit print and enjoy! You're done!
-
-If you want to save ink or have a monochrome printer, add the **PRINT → {{fas,fa-tint}} Ink Friendly** snippet to your brew!
+Depois de clicar em **Imprimir** na barra, uma nova aba abre com a caixa de impressão:
+* Em **Destino**, escolha "Salvar como PDF"
+* Em **Opções**, ative "Gráficos de plano de fundo"
+* As páginas já vêm no tamanho do livro (205×275 mm)
+* Mande imprimir e pronto!
 }}
 
-![homebrew mug](https://homebrewery.naturalcrit.com/assets/homebrewerymug.png) {position:absolute,bottom:20px,left:130px,width:220px}
+{{ameaca,position:absolute,bottom:130px,left:90px,width:240px
+## Lobo Atroz
+**ND** :: 1 (animal)
+**Defesa** :: 13
+**Pontos de Vida** :: 13
 
-{{artist,bottom:160px,left:100px
-##### Homebrew Mug
-[naturalcrit](https://homebrew.naturalcrit.com)
+---
+**Iniciativa** :: +5
+**Percepção** :: +7 (faro)
+**Deslocamento** :: 12m (8q)
+**Ataque** :: mordida +6 (1d8+4)
+}}
+
+{{creditos,position:absolute,bottom:150px,left:360px,width:200px
+<div class='selo'></div>
+<div class='disclaimer'>Este conteúdo é um material gratuito não-oficial, feito por fãs, sem aprovação ou orientação da Jambô Editora, e sem fins lucrativos. Parte do material utilizado é propriedade da Jambô Editora.</div>
 }}
 
 {{pageNumber 1}}
-{{footnote PART 1 | FANCINESS}}
 
 \column
 
-## V3 vs Legacy
-The Homebrewery has two renderers: Legacy and V3. The V3 renderer is recommended for all users because it is more powerful, more customizable, and continues to receive new feature updates while Legacy does not. However Legacy mode will remain available for older brews and veteran users.
-	
-At any time, any individual brew can be changed to your renderer of choice via the {{fa,fa-info-circle}} **Properties** tab on your brew. However, converting between Legacy and V3 may require heavily tweaking the document; while both renderers can use raw HTML, V3 prefers a streamlined curly bracket syntax that avoids the complex HTML structures required by Legacy.
+## Crie como nos livros
+O tema **Tormenta 20** reproduz o Modelo de RPG: página de 205×275 mm em duas colunas, a paleta oficial, as fontes do kit (Tormenta20, Iowan Old Style e Source Sans Pro) e blocos prontos — ficha de ameaça, box, magia, capa e mais.
 
+Use os **trechos** {{fas,fa-dragon}} no topo do editor para inserir esses blocos sem decorar sintaxe: posicione o cursor, escolha o trecho e ajuste o conteúdo.
 
-Scroll down to the next page for a brief summary of the changes and features available in V3!
-#### New Things All The Time!
-Check out the latest updates in the full changelog [here](/changelog).
+### Sempre evoluindo
+A Iniciativa T20 é um projeto de fã, gratuito e de código aberto. Veja as novidades no [changelog](/changelog).
 
-### Helping out
-Like this tool? Head over to our [Patreon](https://www.patreon.com/Naturalcrit) to help us keep the servers running.
+### Dúvidas ou problemas?
+* Confira primeiro as [Perguntas Frequentes](/faq).
+* Relate problemas técnicos no [repositório no GitHub](https://github.com/RaymundoJMSN/iniciativa-t20).
 
-
-This tool will **always** be free, never have ads, and we will never offer any "premium" features or whatever.
-
-### Bugs, Issues, Suggestions?
-- Check the [Frequently Asked Questions](/faq) page first for quick answers.
-- Get help or the right look for your brew by posting on [r/Homebrewery](https://www.reddit.com/r/homebrewery/submit?selftext=true&title=%5BIssue%5D%20Describe%20Your%20Issue%20Here) or joining the [Discord Of Many Things](https://discord.gg/by3deKx).
-- Report technical issues or provide feedback on the [GitHub Repo](https://github.com/naturalcrit/homebrewery/).
-
-### Legal Junk
-The Homebrewery is licensed using the [MIT License](https://github.com/naturalcrit/homebrewery/blob/master/license). Which means you are free to use The Homebrewery codebase any way that you want, except for claiming that you made it yourself.
-
-If you wish to sell or in some way gain profit for what's created on this site, it's your responsibility to ensure you have the proper licenses/rights for any images or resources used.
-#### Crediting Us
-If you'd like to credit us in your brew, we'd be flattered! Just reference that you made it with The Homebrewery.
-
-### More Homebrew Resources
-[![Discord](https://homebrewery.naturalcrit.com/assets/discordOfManyThings.svg){width:50px,float:right,padding-left:10px}](https://discord.gg/by3deKx)
-
-If you are looking for more 5e Homebrew resources check out [r/UnearthedArcana](https://www.reddit.com/r/UnearthedArcana/) and their list of useful resources [here](https://www.reddit.com/r/UnearthedArcana/wiki/resources). The [Discord Of Many Things](https://discord.gg/by3deKx) is another great resource to connect with fellow homebrewers for help and feedback.
-
-
-{{position:absolute;top:20px;right:20px;width:auto
-[![Discord](https://homebrewery.naturalcrit.com/assets/discord.png){height:30px}](https://discord.gg/by3deKx)
-[![Github](https://homebrewery.naturalcrit.com/assets/github.png){height:30px}](https://github.com/naturalcrit/homebrewery)
-[![Patreon](https://homebrewery.naturalcrit.com/assets/patreon.png){height:30px}](https://patreon.com/NaturalCrit)
-[![Reddit](https://homebrewery.naturalcrit.com/assets/reddit.png){height:30px}](https://www.reddit.com/r/homebrewery/)
-}}
+### Sobre os direitos
+A ferramenta é baseada no [Homebrewery](https://github.com/naturalcrit/homebrewery) (licença MIT). **Tormenta 20**, o cenário de **Arton** e a identidade visual aqui reproduzida são propriedade da **Jambô Editora**; este é um material de fã, não-oficial, sem fins lucrativos.
 
 \page
 
 ## Markdown+
-The Homebrewery aims to make homebrewing as simple as possible, providing a live editor with Markdown syntax that is more human-readable and faster to write with than raw HTML.
+A Iniciativa T20 quer deixar a criação o mais simples possível: um editor ao vivo com sintaxe Markdown, mais legível e rápida de escrever do que HTML cru. A partir do renderizador V3, há uma versão estendida do Markdown com sintaxe extra.
 
-From version 3.0.0, with a goal of adding maximum flexibility without users resorting to complex HTML to accomplish simple tasks, Homebrewery provides an extended verision of Markdown with additional syntax.
-
-### Curly Brackets
-Standard Markdown lacks several equivalences to HTML. Hence, we have introduced `{{ }}` as a replacement for `<span></span>` and `<div></div>` for a cleaner custom formatting. Inline spans and block elements can be created and given ID's and Classes, as well as CSS properties, each of which are comma separated with no spaces. Use double quotes if a value requires spaces. Spans and Blocks start the same:
+### Chaves duplas
+O Markdown padrão não tem equivalente a `<span>`/`<div>`. Por isso usamos `{{ }}` para criar elementos com classes, ids e CSS — separados por vírgula, sem espaços. Use aspas duplas quando um valor tiver espaços.
 
 #### Span
-My favorite author is {{pen,#author,color:orange,font-family:"trebuchet ms" Brandon Sanderson}}.  The orange text has a class of `pen`, an id of `author`, is colored orange, and given a new font. The first space outside of quotes marks the beginning of the content.
+Meu autor favorito é {{caneta,#autor,color:orange,font-family:"trebuchet ms" Leonel Caldela}}. O texto laranja tem a classe `caneta`, id `autor`, cor laranja e outra fonte. O primeiro espaço fora das aspas marca o início do conteúdo.
 
-
-#### Block
-{{purple,#book,text-align:center,background:#aa88aa55
-My favorite book is Wheel of Time. This block has a class of `purple`, an id of `book`, and centered text with a colored background. The opening and closing brackets are on lines separate from the block contents.
+#### Bloco
+{{roxo,#livro,text-align:center,background:#aa88aa55
+Meu livro favorito é o Livro Básico. Este bloco tem a classe `roxo`, id `livro` e texto centralizado com fundo colorido. As chaves de abertura e fechamento ficam em linhas separadas do conteúdo.
 }}
 
-#### Injection
-For any element not inside a span or block, you can *inject* attributes using the same syntax but with single brackets in a single line immediately after the element.
+#### Injeção
+Para qualquer elemento fora de um span/bloco, você pode *injetar* atributos com a mesma sintaxe, mas com chave simples, na linha imediatamente após o elemento.
 
-Inline elements like *italics* {color:#D35400} or images require the injection on the same line.
+Elementos em linha como *itálico* {color:#b02b2e} exigem a injeção na mesma linha.
 
-Block elements like headers require the injection to start on the line immediately following.
+##### Um Título Vermelho
+{color:#b02b2e,text-align:center}
 
-##### A Purple Header
-{color:purple,text-align:center}
-
-\* *this does not currently work for tables yet*
-
-### Vertical Spacing
-A blank line can be achieved with a run of one or more `:` alone on a line. More `:`'s will create more space.
+### Espaçamento vertical
+Uma linha em branco maior é feita com uma sequência de `:` sozinhos numa linha. Mais `:` = mais espaço.
 
 ::
 
+Bem melhor que vários `<br>`.
 
-Much nicer than `<br><br><br><br><br>`
+### Listas de definição
+**Exemplo** :: O V3 usa *listas de definição* do HTML para criar "listas" com recuo deslocado — perfeitas para fichas e blocos de magia.
 
-### Definition Lists
-**Example** :: V3 uses HTML *definition lists* to create "lists" with hanging indents.
-
-
-
-### Column Breaks
-Column and page breaks with `\column` and `\page`.
+### Quebras de coluna e página
+Quebre colunas e páginas com `\column` e `\page`.
 
 \column
-### Tables
-Tables now allow column & row spanning between cells. This is included in some updated snippets, but a simplified example is given below.
 
-A cell can be spanned across columns by grouping multiple pipe `|` characters at the end of a cell.
+### Tabelas
+As tabelas saem zebradas, com cabeçalho em versalete marrom — a cara das tabelas do livro.
 
-Row spanning is achieved by adding a `^` at the end of a cell just before the `|`.  
+##### Exemplo
+| Perícia      | Atributo | Treinada |
+|:-------------|:--------:|:--------:|
+| Acrobacia    |   Des    |   não    |
+| Atletismo    |   For    |   não    |
+| Conhecimento |   Int    |   sim    |
+| Misticismo   |   Int    |   sim    |
 
-These can be combined to span a cell across both columns and rows. Cells must have the same colspan if they are to be rowspan'd.
+## Imagens
+Imagens precisam estar hospedadas online (ex.: [Imgur](https://www.imgur.com)). Use o endereço da imagem para referenciá-la na sua obra. Com a *injeção de chaves* você dá id, classes ou CSS à imagem.
 
-##### Example
-| Head A | Spanned Header ||
-| Head B | Head C | Head D |
-|:-------|:------:|:------:|
-| 1A     |    1B  |    1C  |
-| 2A    ^|    2B  |    2C  |
-| 3A    ^|    3B       3C ||
-| 4A     |    4B       4C^||
-| 5A    ^|    5B  |    5C  |
-| 6A     |    6B ^|    6C  |
+## Trechos (snippets)
+A Iniciativa T20 traz uma série de *trechos de código* no topo do editor para você criar rápido. Posicione o cursor, escolha um trecho e ajuste o que precisar.
 
-## Images
-Images must be hosted online somewhere, like [Imgur](https://www.imgur.com). You use the address to that image to reference it in your brew\*.
-
-Using *Curly Injection* you can assign an id, classes, or inline CSS properties to the Markdown image syntax.
-
-![alt-text](https://homebrewery.naturalcrit.com/assets/catwarrior.jpg) {width:100px,border:"2px solid",border-radius:10px}
-
-\* *When using Imgur-hosted images, use the "direct link", which can be found when you click into your image in the Imgur interface.*
-
-## Snippets
-Homebrewery comes with a series of *code snippets* found at the top of the editor pane that make it easy to create brews as quickly as possible.  Just set your cursor where you want the code to appear in the editor pane, choose a snippet, and make the adjustments you need.
-
-## Style Editor Panel
-{{fa,fa-paint-brush}} Usually overlooked or unused by some users, the **Style Editor** tab is located on the right side of the Snippet bar. This editor accepts CSS for styling without requiring `<style>` tags-- anything that would have gone inside style tags before can now be placed here, and snippets that insert CSS styles are now located on that tab.
+## Editor de Estilo
+{{fa,fa-paint-brush}} À direita da barra de trechos fica a aba **Estilo**, que aceita CSS sem precisar de tags `<style>` — tudo que iria dentro delas pode entrar ali.
 
 {{pageNumber 2}}
-{{footnote PART 2 | BORING STUFF}}

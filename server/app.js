@@ -142,7 +142,7 @@ export default async function createApp(vite) {
 		req.brew = {
 			text     : welcomeText,
 			renderer : 'V3',
-			theme    : '5ePHB'
+			theme    : 'Tormenta20'
 		},
 
 		req.ogMeta = { ...defaultMetaTags,
@@ -159,7 +159,7 @@ export default async function createApp(vite) {
 		req.brew = {
 			text     : welcomeTextLegacy,
 			renderer : 'legacy',
-			theme    : '5ePHB'
+			theme    : 'Tormenta20'
 		},
 
 		req.ogMeta = { ...defaultMetaTags,
@@ -176,7 +176,7 @@ export default async function createApp(vite) {
 		req.brew = {
 			text     : migrateText,
 			renderer : 'V3',
-			theme    : '5ePHB'
+			theme    : 'Tormenta20'
 		},
 
 		req.ogMeta = { ...defaultMetaTags,
@@ -194,7 +194,7 @@ export default async function createApp(vite) {
 			title    : 'Changelog',
 			text     : changelogText,
 			renderer : 'V3',
-			theme    : '5ePHB'
+			theme    : 'Tormenta20'
 		},
 
 		req.ogMeta = { ...defaultMetaTags,
@@ -212,7 +212,7 @@ export default async function createApp(vite) {
 			title    : 'FAQ',
 			text     : faqText,
 			renderer : 'V3',
-			theme    : '5ePHB'
+			theme    : 'Tormenta20'
 		},
 
 		req.ogMeta = { ...defaultMetaTags,
