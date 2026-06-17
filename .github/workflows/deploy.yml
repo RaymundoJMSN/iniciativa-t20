@@ -1,0 +1,38 @@
+name: Deploy to devilsworks
+
+# Deploy automático: a cada push em master, conecta via SSH no servidor
+# Oracle (ubuntu@devilsworks), atualiza o código, rebuilda e reinicia o app.
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          command_timeout: 15m
+          script: |
+            set -e
+            cd /home/ubuntu/iniciativa-t20
+            echo "== atualizando código =="
+            git fetch --all --quiet
+            git reset --hard origin/master
+            echo "== deps + build (postinstall) =="
+            npm install --no-audit --no-fund
+            echo "== reiniciando app =="
+            pm2 restart iniciativa-t20 --update-env
+            pm2 save
+            echo "== deploy OK: $(git rev-parse --short HEAD) =="
