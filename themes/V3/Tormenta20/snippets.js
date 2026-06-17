@@ -50,19 +50,25 @@ export default [{
 			icon : 'fas fa-skull',
 			gen  : dedent`
 				{{ameaca
+				<div class='nd'>ND 1</div>
 				## Nome da Ameaça
-				**ND** :: 1 (tipo)
-				**Defesa** :: 15
-				**Pontos de Vida** :: 20
+				*Humanoide (tipo) Médio*
+
+				**Iniciativa** +5, **Percepção** +7
+				**Defesa** 15, **Fort** +10, **Ref** +5, **Von** +1
+				**Pontos de Vida** 20
+				**Deslocamento** 9m (6q)
 
 				---
-				**Iniciativa** :: +5
-				**Percepção** :: +7
-				**Deslocamento** :: 9m (6q)
-				**Ataque** :: arma +7 (1d8+3)
-				**Atributos** :: For 2, Des 1, Con 2, Int 0, Sab 1, Car 0
-				**Perícias** :: Luta +7, Furtividade +5
-				**Equipamento** :: arma, armadura
+				**Corpo a Corpo** arma +7 (1d8+3)
+				**À Distância** arma +6 (1d6+2)
+
+				---
+				{{atributos For 2, Des 1, Con 2, Int 0, Sab 1, Car 0}}
+
+				---
+				**Perícias** Luta +7, Furtividade +5
+				**Equipamento** arma, armadura. **Tesouro** Padrão.
 				}}
 
 				`,
@@ -73,14 +79,14 @@ export default [{
 			gen  : dedent`
 				{{magia
 				#### Nome da Magia
-				<div class='tipo'>Arcana, 1º círculo</div>
-				**Execução** :: padrão
-				**Alcance** :: curto
-				**Alvo** :: 1 criatura
-				**Duração** :: instantânea
-				**Resistência** :: Reflexos reduz à metade
+				{{tipo Arcana, 1º círculo}}
+				**Execução** padrão · **Alcance** curto
+				**Alvo** 1 criatura · **Duração** instantânea
+				**Resistência** Reflexos reduz à metade
 
 				Descrição do efeito da magia.
+
+				**Aprimoramentos:** +1 PM: descrição do aprimoramento.
 				}}
 
 				`,

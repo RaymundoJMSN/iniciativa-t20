@@ -23,6 +23,7 @@
 @t20-dourado    : #f0dc82;
 @t20-bege       : #e8d1b5;
 @t20-cinza      : #727175;
+@t20-statblock  : #9b531f; // marrom-tijolo do statblock (rótulos, réguas, selo de ND)
 @t20-zebra-a    : #ddd9d5;
 @t20-zebra-b    : #f6f6f6;
 @t20-texto      : #000000;
@@ -162,30 +163,35 @@
 // *****************************/
 .page {
 	.ameaca {
-		padding      : 0.35cm 0.45cm;
+		position     : relative;
+		padding      : 0.1cm 0;
 		font-family  : 'SourceSansPro';
 		font-size    : 8.5pt;
 		color        : @t20-texto;
-		background   : @t20-zebra-b;
-		border       : 1.5px solid @t20-vinho;
+		// statblock aberto na página (sem caixa), como no livro
 		break-inside : avoid;
 		h1, h2 {
 			font-family   : 'Tormenta20';
 			font-size     : 14pt;
 			color         : @t20-vinho;
 			column-span   : initial;
-			margin-bottom : 0.1cm;
+			margin-bottom : 0.1cm; padding-right : 2.2cm; border-bottom : 2px solid @t20-statblock;
 		}
-		// rótulos de ficha (Iniciativa, Defesa...) small-caps bold vermelho
+		// selo de ND: banner laranja-tijolo angulado no canto superior direito
+		.nd { position : absolute; top : 0; right : 0; min-width : 1.5cm; padding : 1px 0.25cm 1px 0.5cm; font-family : 'Tormenta20'; font-size : 12pt; line-height : 1.25; text-align : center; color : @t20-bege; background : @t20-statblock; clip-path : polygon(20% 0, 100% 0, 100% 100%, 20% 100%, 0 50%); }
+		// rótulos de ficha (Iniciativa, Defesa...) small-caps bold marrom-tijolo
 		dt {
 			font-weight  : bold;
 			font-variant : small-caps;
-			color        : @t20-vermelho;
+			color        : @t20-statblock;
 		}
+		// linha de atributos centralizada entre réguas
+		.atributos { display : block; margin : 0.1cm 0; font-weight : bold; font-variant : small-caps; color : @t20-statblock; text-align : center; }
+		strong { font-variant : small-caps; color : @t20-statblock; }
 		hr {
 			height     : 2px;
 			margin     : 0.12cm 0;
-			background : @t20-vinho;
+			background : @t20-statblock;
 			border     : none;
 		}
 	}
@@ -206,8 +212,8 @@
 			font-style  : italic; // nome de magia em itálico
 			color       : @t20-vinho;
 		}
-		.tipo { color : @t20-cinza; font-weight : bold; } // "tipo de magia" cinza
-		dt { font-weight : bold; color : @t20-vermelho; }
+		.tipo { color : @t20-cinza; font-weight : bold; font-variant : small-caps; } // "tipo de magia" cinza
+		dt { font-weight : bold; }
 	}
 }
 
