@@ -32,9 +32,9 @@ const MetadataEditor = createReactClass({
 				tags        : [],
 				published   : false,
 				authors     : [],
-				renderer    : 'legacy',
-				theme       : '5ePHB',
-				lang        : 'en'
+				renderer    : 'V3',
+				theme       : 'Tormenta20',
+				lang        : 'pt-BR'
 			},
 
 			onChange    : ()=>{},
