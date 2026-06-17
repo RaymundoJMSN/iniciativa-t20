@@ -14,7 +14,7 @@ const getRedditLink = (brew)=>{
 
 			**[Link da Iniciativa T20](${global.config.baseUrl}/share/${getShareId(brew)})**`;
 
-	return `https://www.reddit.com/r/UnearthedArcana/submit?title=${encodeURIComponent(brew.title.toWellFormed())}&text=${encodeURIComponent(text)}`;
+	return `https://www.reddit.com/r/Tormenta/submit?title=${encodeURIComponent(brew.title.toWellFormed())}&text=${encodeURIComponent(text)}`;
 };
 
 export default ({ brew, currentPage })=>(
