@@ -4,7 +4,7 @@
 	"naturalcrit_url" : "local.naturalcrit.com:8010",
 	"secret" : "secret",
 	"web_port" : 8000,
-	"local_environments" : ["docker", "local"],
+	"local_environments" : ["docker", "local", "production"],
 	"publicUrl" : "https://homebrewery.naturalcrit.com",
 	"hb_images" : null,
 	"hb_fonts" : null,
