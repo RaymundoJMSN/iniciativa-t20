@@ -74,7 +74,8 @@ export default async function createApp(vite) {
 				'https://www.naturalcrit.com',
 				'https://naturalcrit-stage.herokuapp.com',
 				'https://homebrewery-stage.herokuapp.com',
-			];
+				config.get('publicUrl'),	// origem deste deploy (ex.: https://caseiro.raynathus.com.br); POST/PUT same-origin enviam header Origin
+			].filter(Boolean).map((o)=>o.replace(/\/$/, ''));
 
 			const localNetworkRegex = /^http:\/\/(localhost|127\.0\.0\.1|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+):\d+$/;
 
