@@ -195,6 +195,7 @@ const BrewRenderer = (props)=>{
 		let classes    = 'page';
 		let attributes = {};
 
+		try {
 		if(props.renderer == 'legacy') {
 			pageText.replace(COLUMNBREAK_REGEX_LEGACY, '```\n````\n'); // Allow Legacy brews to use `\column(break)`
 			const html = MarkdownLegacy.render(pageText);
@@ -233,6 +234,13 @@ const BrewRenderer = (props)=>{
 			const html = Markdown.render(pageText, index);
 
 			return <BrewPage className={classes} index={index} key={index} contents={html} style={styles} attributes={attributes} onVisibilityChange={handlePageVisibilityChange} />;
+		}
+		} catch (e) {
+			// Markdown malformado (ex.: `{{` ou crase sem fechar) faz a marked lançar.
+			// Sem isto, o throw escapa do useMemo e derruba o editor inteiro (tela branca).
+			// Degradamos só esta página; o preview volta sozinho quando o texto ficar válido.
+			console.error(`Erro ao renderizar a página ${index + 1}:`, e);
+			return <BrewPage className='page phb' index={index} key={index} contents={'<div class="columnWrapper"><p><strong>⚠ Erro ao renderizar esta página.</strong></p><p>Provavelmente há sintaxe incompleta (por exemplo um <code>{{</code> ou uma crase sem fechamento). Corrija o trecho e o preview volta sozinho.</p></div>'} style={styles} onVisibilityChange={handlePageVisibilityChange} />;
 		}
 	};
 
