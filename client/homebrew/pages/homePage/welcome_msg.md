@@ -73,7 +73,7 @@ A ferramenta é baseada no [Homebrewery](https://github.com/naturalcrit/homebrew
 A Iniciativa T20 quer deixar a criação o mais simples possível: um editor ao vivo com sintaxe Markdown, mais legível e rápida de escrever do que HTML cru. A partir do renderizador V3, há uma versão estendida do Markdown com sintaxe extra.
 
 ### Chaves duplas
-O Markdown padrão não tem equivalente a `<span>`/`<div>`. Por isso usamos `{{ }}` para criar elementos com classes, ids e CSS — separados por vírgula, sem espaços. Use aspas duplas quando um valor tiver espaços.
+O Markdown padrão não tem equivalente às tags `span`/`div`. Por isso usamos `{{ }}` para criar elementos com classes, ids e CSS — separados por vírgula, sem espaços. Use aspas duplas quando um valor tiver espaços.
 
 #### Span
 Meu autor favorito é {{caneta,#autor,color:orange,font-family:"trebuchet ms" Leonel Caldela}}. O texto laranja tem a classe `caneta`, id `autor`, cor laranja e outra fonte. O primeiro espaço fora das aspas marca o início do conteúdo.
